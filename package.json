@@ -1,0 +1,11 @@
+{
+  "main": "src/index.js",
+  "name": "kuba.engineer",
+  "packageManager": "yarn@3.2.4",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "standard/*"
+    ]
+  }
+}
