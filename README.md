@@ -1,2 +1,2 @@
-# kuba.engineer
+# kuba
 Em sua essência, o Kuba é um bundler de módulo estático para aplicativos JavaScript modernos
