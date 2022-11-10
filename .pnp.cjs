@@ -33,6 +33,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-import", "virtual:86db069ca80f053ece03b6f9ac7a004154cfac7446787f90851923ecaaf44a92666200fe8e990acb18f058776952604343af1236f8d42c3362aa6e6a2c77059c#npm:2.26.0"],\
             ["eslint-plugin-n", "virtual:86db069ca80f053ece03b6f9ac7a004154cfac7446787f90851923ecaaf44a92666200fe8e990acb18f058776952604343af1236f8d42c3362aa6e6a2c77059c#npm:15.5.1"],\
             ["eslint-plugin-promise", "virtual:86db069ca80f053ece03b6f9ac7a004154cfac7446787f90851923ecaaf44a92666200fe8e990acb18f058776952604343af1236f8d42c3362aa6e6a2c77059c#npm:6.1.1"],\
+            ["husky", "npm:8.0.2"],\
             ["jest", "virtual:86db069ca80f053ece03b6f9ac7a004154cfac7446787f90851923ecaaf44a92666200fe8e990acb18f058776952604343af1236f8d42c3362aa6e6a2c77059c#npm:29.3.1"]\
           ],\
           "linkType": "SOFT"\
@@ -3296,6 +3297,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["husky", [\
+        ["npm:8.0.2", {\
+          "packageLocation": "./.yarn/cache/husky-npm-8.0.2-46c70b41ed-e101656fcb.zip/node_modules/husky/",\
+          "packageDependencies": [\
+            ["husky", "npm:8.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["iconv-lite", [\
         ["npm:0.6.3", {\
           "packageLocation": "./.yarn/cache/iconv-lite-npm-0.6.3-24b8aae27e-3f60d47a5c.zip/node_modules/iconv-lite/",\
@@ -4315,6 +4325,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-import", "virtual:86db069ca80f053ece03b6f9ac7a004154cfac7446787f90851923ecaaf44a92666200fe8e990acb18f058776952604343af1236f8d42c3362aa6e6a2c77059c#npm:2.26.0"],\
             ["eslint-plugin-n", "virtual:86db069ca80f053ece03b6f9ac7a004154cfac7446787f90851923ecaaf44a92666200fe8e990acb18f058776952604343af1236f8d42c3362aa6e6a2c77059c#npm:15.5.1"],\
             ["eslint-plugin-promise", "virtual:86db069ca80f053ece03b6f9ac7a004154cfac7446787f90851923ecaaf44a92666200fe8e990acb18f058776952604343af1236f8d42c3362aa6e6a2c77059c#npm:6.1.1"],\
+            ["husky", "npm:8.0.2"],\
             ["jest", "virtual:86db069ca80f053ece03b6f9ac7a004154cfac7446787f90851923ecaaf44a92666200fe8e990acb18f058776952604343af1236f8d42c3362aa6e6a2c77059c#npm:29.3.1"]\
           ],\
           "linkType": "SOFT"\
