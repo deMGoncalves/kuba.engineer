@@ -10,3 +10,7 @@
  *      |  ...
  *      |  9 { print('9') }
  */
+
+const Parser = require('@kuba/parser')
+
+console.log(Parser)

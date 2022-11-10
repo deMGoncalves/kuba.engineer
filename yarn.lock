@@ -969,6 +969,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@kuba/parser@workspace:standard/parser":
+  version: 0.0.0-use.local
+  resolution: "@kuba/parser@workspace:standard/parser"
+  languageName: unknown
+  linkType: soft
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -3872,9 +3878,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"kuba.engineer@workspace:.":
+"kuba@workspace:.":
   version: 0.0.0-use.local
-  resolution: "kuba.engineer@workspace:."
+  resolution: "kuba@workspace:."
   dependencies:
     "@commitlint/cli": ^17.2.0
     "@commitlint/config-conventional": ^17.2.0
