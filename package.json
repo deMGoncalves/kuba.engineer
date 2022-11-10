@@ -11,7 +11,7 @@
   "packageManager": "yarn@3.2.4",
   "private": true,
   "scripts": {
-    "lint": "eslint './**/*.js'"
+    "lint": "eslint ./**/*.js"
   },
   "workspaces": {
     "packages": [
