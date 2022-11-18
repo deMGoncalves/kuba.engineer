@@ -6,12 +6,20 @@ module.exports = {
     es2021: true,
     node: true
   },
-  extends: 'standard',
+  extends: [
+    'standard',
+    'plugin:@typescript-eslint/recommended'
+  ],
   overrides: [
   ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 'latest'
+    ecmaVersion: 'latest',
+    sourceType: 'module'
   },
+  plugins: [
+    '@typescript-eslint'
+  ],
   rules: {
   }
 }
