@@ -30,6 +30,7 @@
   "scripts": {
     "lint:es": "eslint './**/*.{js,jsx}'",
     "lint:style": "stylelint './**/*.{js,jsx}'",
+    "start:pnp": "yarn workspace @kuba/pnp start",
     "test": "jest --passWithNoTests",
     "postinstall": "husky install"
   },
