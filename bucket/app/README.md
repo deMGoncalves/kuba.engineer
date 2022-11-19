@@ -1,4 +1,4 @@
-# Componentes plug and play
+# APP
 
 ##### Variable
 
@@ -14,11 +14,11 @@ export PORT=4000
 ##### Start
 
 ```bash
-yarn workspace @kuba/pnp start
+yarn workspace @kuba/app start
 ```
 
 ##### Build
 
 ```bash
-yarn workspace @kuba/pnp build
+yarn workspace @kuba/app build
 ```
