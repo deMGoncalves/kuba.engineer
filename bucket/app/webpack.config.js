@@ -15,7 +15,7 @@ module.exports = {
     port: process.env.PORT
   },
   entry: {
-    site: './index.js'
+    app: './index.js'
   },
   module: {
     rules: [

@@ -9,7 +9,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "main": "src/index.js",
-  "name": "@kuba/site",
+  "name": "@kuba/app",
   "private": true,
   "scripts": {
     "build": "webpack --mode production",
