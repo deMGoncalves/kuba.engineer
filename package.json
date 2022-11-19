@@ -35,6 +35,7 @@
   },
   "workspaces": {
     "packages": [
+      "bucket/*",
       "standard/*"
     ]
   }
