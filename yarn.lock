@@ -996,9 +996,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@kuba/pnp@workspace:bucket/pnp":
+"@kuba/app@workspace:bucket/app":
   version: 0.0.0-use.local
-  resolution: "@kuba/pnp@workspace:bucket/pnp"
+  resolution: "@kuba/app@workspace:bucket/app"
   dependencies:
     file-loader: ^6.2.0
     html-webpack-plugin: ^5.5.0
@@ -1010,9 +1010,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kuba/site@workspace:bucket/site":
+"@kuba/pnp@workspace:bucket/pnp":
   version: 0.0.0-use.local
-  resolution: "@kuba/site@workspace:bucket/site"
+  resolution: "@kuba/pnp@workspace:bucket/pnp"
   dependencies:
     file-loader: ^6.2.0
     html-webpack-plugin: ^5.5.0
