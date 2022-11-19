@@ -28,8 +28,8 @@
   "packageManager": "yarn@3.2.4",
   "private": true,
   "scripts": {
-    "lint:es": "eslint ./**/*.{js,jsx}",
-    "lint:style": "stylelint ./**/*.{js,jsx}",
+    "lint:es": "eslint './**/*.{js,jsx}'",
+    "lint:style": "stylelint './**/*.{js,jsx}'",
     "test": "jest --passWithNoTests",
     "postinstall": "husky install"
   },
