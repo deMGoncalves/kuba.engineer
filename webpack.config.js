@@ -15,7 +15,7 @@ module.exports = {
     port: process.env.PORT
   },
   entry: {
-    app: './index.js'
+    kuba: './index.js'
   },
   module: {
     rules: [
