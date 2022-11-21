@@ -14,7 +14,9 @@ module.exports = {
     hot: true,
     port: process.env.PORT
   },
-  entry: './index.js',
+  entry: {
+    artifact: './index.js'
+  },
   module: {
     rules: [
       {

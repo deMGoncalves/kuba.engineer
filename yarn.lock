@@ -1010,9 +1010,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kuba/pnp@workspace:bucket/pnp":
+"@kuba/artifact@workspace:bucket/artifact":
   version: 0.0.0-use.local
-  resolution: "@kuba/pnp@workspace:bucket/pnp"
+  resolution: "@kuba/artifact@workspace:bucket/artifact"
   dependencies:
     file-loader: ^6.2.0
     html-webpack-plugin: ^5.5.0

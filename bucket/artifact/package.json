@@ -9,11 +9,11 @@
     "webpack-dev-server": "^4.11.1"
   },
   "main": "src/index.js",
-  "name": "@kuba/pnp",
+  "name": "@kuba/artifact",
   "private": true,
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack serve --mode development --open"
+    "start": "webpack serve --mode development"
   },
   "version": "1.0.0"
 }

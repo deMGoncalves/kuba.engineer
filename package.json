@@ -31,7 +31,7 @@
     "lint:es": "eslint './**/*.{js,jsx}'",
     "lint:style": "stylelint './**/*.{js,jsx}'",
     "start:app": "yarn workspace @kuba/app start",
-    "start:pnp": "yarn workspace @kuba/pnp start",
+    "start:artifact": "yarn workspace @kuba/artifact start",
     "test": "jest --passWithNoTests",
     "postinstall": "husky install"
   },
