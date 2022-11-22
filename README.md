@@ -8,6 +8,9 @@ Quando focamos no domínio, minimizamos a quantidade de programadores para desen
 
 Meus entregáveis são simples, pequenos e imperfeito. Minha visão está além da programação.
 
+
+##### Variaveis de ambiente
+
 ```bash
 export PUBLIC_PATH=/
 export HINTS=warning
@@ -15,4 +18,11 @@ export MAX_ASSET_SIZE=2000
 export MAX_ENTRYPOINT_SIZE=2000
 export ANALYZER_MODE=static
 export PORT=4000
+```
+
+##### Instalacao
+
+```bash
+corepack enable
+yarn install
 ```
