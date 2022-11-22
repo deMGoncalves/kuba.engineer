@@ -28,13 +28,14 @@
   "packageManager": "yarn@3.2.4",
   "private": true,
   "scripts": {
+    "build": "webpack --mode production",
     "lint:es": "eslint './**/*.{js,jsx}'",
     "lint:style": "stylelint './**/*.{js,jsx}'",
-    "start:app": "yarn workspace @kuba/app start",
-    "start:artifact": "yarn workspace @kuba/artifact start",
-    "test": "jest --passWithNoTests",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "start": "webpack server --mode development",
+    "test": "jest --passWithNoTests"
   },
+  "type": "module",
   "workspaces": {
     "packages": [
       "standard/*"
