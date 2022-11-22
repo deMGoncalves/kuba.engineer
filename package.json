@@ -39,7 +39,7 @@
     "lint:es": "eslint './**/*.{js,jsx}'",
     "lint:style": "stylelint './**/*.{js,jsx}'",
     "postinstall": "husky install",
-    "start": "webpack server --mode development",
+    "start": "webpack server --mode development --open",
     "test": "jest --passWithNoTests"
   },
   "type": "module",
