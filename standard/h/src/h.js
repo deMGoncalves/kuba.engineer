@@ -1,9 +1,7 @@
-export default (tagName, attrs) => {
-  const element = document.createElement(tagName)
+import Component from './component'
+import Element from './element'
 
-  Object
-    .entries(attrs)
-    .forEach(([key, value]) => element.setAttribute(key, value))
-
-  return element
+export default (nodeName, attrs, ...children) => {
+  if (Element.is(nodeName)) return Element.create(nodeName, attrs, children)
+  if (Component.is(nodeName)) return Component.execute(nodeName, attrs, children)
 }
