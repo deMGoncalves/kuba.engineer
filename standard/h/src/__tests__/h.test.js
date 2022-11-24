@@ -11,11 +11,29 @@ describe('standard.h', () => {
     jest.spyOn(Element, 'create')
     jest.spyOn(Element, 'is')
 
-    h('h1', {}, 'kuba')
+    const nodeName = 'h1'
+
+    h(nodeName, {})
 
     expect(Element.is).toHaveBeenCalledTimes(1)
-    expect(Element.is).toHaveBeenCalledWith('h1')
+    expect(Element.is).toHaveBeenCalledWith(nodeName)
+
     expect(Element.create).toHaveBeenCalledTimes(1)
-    expect(Element.create).toHaveBeenCalledWith('h1', {}, ['kuba'])
+    expect(Element.create).toHaveBeenCalledWith(nodeName, {}, [])
+  })
+
+  test('Deve executar o component quando o nodeName for uma funcao', () => {
+    jest.spyOn(Component, 'execute')
+    jest.spyOn(Component, 'is')
+
+    const nodeName = () => (undefined)
+
+    h(nodeName, {})
+
+    expect(Component.is).toHaveBeenCalledTimes(1)
+    expect(Component.is).toHaveBeenCalledWith(nodeName)
+
+    expect(Component.execute).toHaveBeenCalledTimes(1)
+    expect(Component.execute).toHaveBeenCalledWith(nodeName, {}, [])
   })
 })
