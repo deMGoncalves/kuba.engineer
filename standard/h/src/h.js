@@ -1,4 +1,4 @@
-export default (tagName, attrs = {}) => {
+export default (tagName, attrs) => {
   const element = document.createElement(tagName)
 
   Object
