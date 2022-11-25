@@ -11,7 +11,7 @@ describe('standard.h.element', () => {
     expect(Element.is(nodeName)).toBeTruthy()
   })
 
-  test('Deve criar um elemento quando o metodo create for executado', () => {
+  test('Cria um elemento', () => {
     expect(Element.create(nodeName)).toBeInstanceOf(Element)
   })
 })
