@@ -5,7 +5,7 @@ describe('standard.h.element', () => {
   let nodeName
 
   beforeEach(() => {
-    nodeName = 'div'
+    nodeName = 'DIV'
   })
 
   test('Retorna truthy quando o nodeName for uma string', () => {
@@ -17,10 +17,10 @@ describe('standard.h.element', () => {
   })
 
   test('Cria um HTMLElement', () => {
-    const element = Element.create('div', {}, [])
+    const element = Element.create(nodeName, {}, [])
     const node = element[render.paint]()
 
     expect(node).toBeInstanceOf(HTMLElement)
-    expect(node.nodeName).toBe('DIV')
+    expect(node.nodeName).toBe(nodeName)
   })
 })
