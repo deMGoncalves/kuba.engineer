@@ -7,7 +7,7 @@ describe('standard.h.component', () => {
     nodeName = jest.fn()
   })
 
-  test('Deve retornar truthy quando o nodeName for uma function', () => {
+  test('Retorna truthy quando o nodeName for uma function', () => {
     expect(Component.is(nodeName)).toBeTruthy()
   })
 
