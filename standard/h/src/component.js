@@ -1,9 +1,6 @@
 class Component {
   static execute (nodeName, attrs, children) {
-    return nodeName(
-      attrs,
-      children.flat(Infinity)
-    )
+    return nodeName(attrs, children)
   }
 
   static is (nodeName) {

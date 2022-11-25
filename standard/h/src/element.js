@@ -1,10 +1,6 @@
 class Element {
   static create (nodeName, attrs, children) {
-    return new Element(
-      nodeName,
-      Object.entries(attrs),
-      children.flat(Infinity)
-    )
+    return new Element(nodeName, attrs, children)
   }
 
   static is (nodeName) {
