@@ -7,7 +7,7 @@ describe('standard.h', () => {
     jest.clearAllMocks()
   })
 
-  test('Deve criar um elemento quando o nodeName for uma string', () => {
+  test('Cria um elemento quando o nodeName for uma string', () => {
     jest.spyOn(Element, 'create')
     jest.spyOn(Element, 'is')
 
