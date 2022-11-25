@@ -1,9 +1,17 @@
-import element from '../element'
+import Element from '../element'
 
 describe('standard.h.element', () => {
-  test('Deve retornar truthy quando o nodeName for uma string', () => {
-    expect(element.is('div')).toBeTruthy()
+  let nodeName
+
+  beforeEach(() => {
+    nodeName = 'div'
   })
 
-  test.todo('Deve criar um elemento quando o metodo create for executado')
+  test('Deve retornar truthy quando o nodeName for uma string', () => {
+    expect(Element.is(nodeName)).toBeTruthy()
+  })
+
+  test('Deve criar um elemento quando o metodo create for executado', () => {
+    expect(Element.create(nodeName)).toBeInstanceOf(Element)
+  })
 })
