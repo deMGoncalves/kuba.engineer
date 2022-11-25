@@ -7,7 +7,7 @@ describe('standard.h.element', () => {
     nodeName = 'div'
   })
 
-  test('Deve retornar truthy quando o nodeName for uma string', () => {
+  test('Retorna truthy quando o nodeName for uma string', () => {
     expect(Element.is(nodeName)).toBeTruthy()
   })
 
