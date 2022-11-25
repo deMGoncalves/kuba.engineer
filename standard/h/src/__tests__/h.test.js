@@ -22,7 +22,7 @@ describe('standard.h', () => {
     expect(Element.create).toHaveBeenCalledWith(nodeName, {}, [])
   })
 
-  test('Deve executar o component quando o nodeName for uma funcao', () => {
+  test('Executa o nodeName quando for uma funcao', () => {
     jest.spyOn(Component, 'execute')
     jest.spyOn(Component, 'is')
 
