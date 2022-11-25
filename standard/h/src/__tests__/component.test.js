@@ -11,5 +11,10 @@ describe('standard.h.component', () => {
     expect(Component.is(nodeName)).toBeTruthy()
   })
 
-  test.todo('Deve executar o component quando o metodo execute for executado')
+  test('Deve executar o component quando o metodo execute for executado', () => {
+    Component.execute(nodeName, {}, [])
+
+    expect(nodeName).toHaveBeenCalledTimes(1)
+    expect(nodeName).toHaveBeenCalledWith({}, [])
+  })
 })
