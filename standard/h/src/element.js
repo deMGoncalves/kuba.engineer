@@ -1,4 +1,10 @@
+import render from './render'
+
 class Element {
+  [render.paint] () {
+    return this
+  }
+
   static create (nodeName, attrs, children) {
     return new Element(nodeName, attrs, children)
   }
