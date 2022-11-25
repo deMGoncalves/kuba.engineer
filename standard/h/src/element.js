@@ -1,8 +1,15 @@
 import render from './render'
 
 class Element {
+  #node
+  #nodeName
+
+  constructor (nodeName) {
+    this.#nodeName = nodeName
+  }
+
   [render.paint] () {
-    return this
+    return (this.#node ??= document.createElement(this.#nodeName))
   }
 
   static create (nodeName, attrs, children) {
