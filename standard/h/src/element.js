@@ -1,3 +1,4 @@
+import createElement from './createElement'
 import render from './render'
 
 class Element {
@@ -9,7 +10,8 @@ class Element {
   }
 
   [render.paint] () {
-    return (this.#node ??= document.createElement(this.#nodeName))
+    this.#node ??= createElement(this.#nodeName)
+    return this.#node
   }
 
   static create (nodeName, attrs, children) {

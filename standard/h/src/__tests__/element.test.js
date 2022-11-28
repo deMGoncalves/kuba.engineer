@@ -1,11 +1,15 @@
+import createElement from '../createElement'
 import Element from '../element'
 import render from '../render'
+
+jest.mock('../createElement')
 
 describe('standard.h.element', () => {
   let nodeName
 
   beforeEach(() => {
     nodeName = 'DIV'
+    createElement.mockImplementation(() => document.createElement(nodeName))
   })
 
   test('Retorna truthy quando o nodeName for uma string', () => {
@@ -22,5 +26,8 @@ describe('standard.h.element', () => {
 
     expect(node).toBeInstanceOf(HTMLElement)
     expect(node.nodeName).toBe(nodeName)
+
+    expect(createElement).toHaveBeenCalledTimes(1)
+    expect(createElement).toHaveBeenCalledWith(nodeName)
   })
 })
