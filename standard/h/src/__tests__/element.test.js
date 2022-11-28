@@ -1,15 +1,11 @@
-import createElement from '../createElement'
 import Element from '../element'
 import render from '../render'
-
-jest.mock('../createElement')
 
 describe('standard.h.element', () => {
   let nodeName
 
   beforeEach(() => {
     nodeName = 'DIV'
-    createElement.mockImplementation(() => document.createElement(nodeName))
   })
 
   test('Retorna truthy quando o nodeName for uma string', () => {
@@ -21,6 +17,8 @@ describe('standard.h.element', () => {
   })
 
   test('Cria um HTMLElement', () => {
+    const createElement = jest.spyOn(document, 'createElement')
+
     const element = Element.create(nodeName, {}, [])
     const node = element[render.paint]()
 

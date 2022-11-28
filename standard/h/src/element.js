@@ -1,4 +1,3 @@
-import createElement from './createElement'
 import render from './render'
 
 class Element {
@@ -10,7 +9,7 @@ class Element {
   }
 
   [render.paint] () {
-    this.#node ??= createElement(this.#nodeName)
+    this.#node ??= document.createElement(this.#nodeName)
     return this.#node
   }
 
