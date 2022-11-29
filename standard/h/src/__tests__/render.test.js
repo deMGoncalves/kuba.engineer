@@ -2,15 +2,10 @@ import render from '../render'
 
 describe('standard.h.render', () => {
   let element
-  let node
 
   beforeEach(() => {
     element = {
       [render.paint]: jest.fn().mockReturnValue(HTMLElement)
-    }
-
-    node = {
-      append: jest.fn()
     }
   })
 
@@ -19,11 +14,13 @@ describe('standard.h.render', () => {
   })
 
   test('Apenda o HTMLElement retornado do contrato render.paint no element', () => {
-    render(node, element)
+    const append = jest.spyOn(document.body, 'append')
+
+    render(document.body, element)
 
     expect(element[render.paint]).toHaveBeenCalledTimes(1)
 
-    expect(node.append).toHaveBeenCalledTimes(1)
-    expect(node.append).toHaveBeenCalledWith(HTMLElement)
+    expect(append).toHaveBeenCalledTimes(1)
+    expect(append).toHaveBeenCalledWith(HTMLElement)
   })
 })
