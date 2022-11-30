@@ -19,7 +19,7 @@ class Text {
 
   static mapper (textContent) {
     const types = ['String', 'Number', 'Boolean', 'Date', 'Array']
-    const target = Object
+    const target = {}
       .toString()
       .call(textContent)
       .slice(8, -1)
