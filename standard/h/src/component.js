@@ -1,5 +1,6 @@
 class Component {
   static execute (nodeName, attrs, children) {
+    children = children.flat(Infinity)
     return nodeName(attrs, children)
   }
 

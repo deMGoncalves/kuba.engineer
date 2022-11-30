@@ -17,7 +17,7 @@ class Text {
     return new Text(textContent)
   }
 
-  static is (textContent) {
+  static mapper (textContent) {
     const types = ['String', 'Number', 'Boolean', 'Date', 'Array']
     const target = Object
       .toString()
@@ -25,6 +25,8 @@ class Text {
       .slice(8, -1)
 
     return types.includes(target)
+      ? Text.create(textContent)
+      : textContent
   }
 }
 
