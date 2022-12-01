@@ -13,20 +13,14 @@ class Text {
     return this.#node
   }
 
-  static create (textContent) {
-    return new Text(textContent)
-  }
-
-  static mapper (textContent) {
-    const types = ['String', 'Number', 'Boolean', 'Date', 'Array']
-    const target = {}
-      .toString()
-      .call(textContent)
-      .slice(8, -1)
-
-    return types.includes(target)
-      ? Text.create(textContent)
-      : textContent
+  static mapper (nodeList) {
+    return nodeList.map((child) => {
+      const types = ['String', 'Number', 'Boolean', 'Date', 'Array']
+      const target = {}.toString.call(child).slice(8, -1)
+      return types.includes(target)
+        ? new Text(child)
+        : child
+    })
   }
 }
 
