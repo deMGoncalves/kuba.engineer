@@ -1,3 +1,4 @@
+import magic from '@kuba/magic'
 import render from './render'
 import Text from './text'
 
@@ -6,7 +7,7 @@ class Children {
   #element
 
   static get parent () {
-    return Symbol('parent')
+    return magic.children_parent
   }
 
   constructor (childList, element) {
