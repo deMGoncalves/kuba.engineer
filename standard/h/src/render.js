@@ -1,11 +1,11 @@
-const paint = Symbol('paint')
+import magic from '@kuba/magic'
 
-const render = (node, element) => (
-  node?.append(element[paint]?.())
-)
+function render (node, element) {
+  return node.append(element[render.paint]())
+}
 
 Object.assign(render, {
-  paint
+  paint: magic.render_paint
 })
 
 export default render
