@@ -1014,6 +1014,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kuba/overload@workspace:standard/overload":
+  version: 0.0.0-use.local
+  resolution: "@kuba/overload@workspace:standard/overload"
+  languageName: unknown
+  linkType: soft
+
 "@leichtgewicht/ip-codec@npm:^2.0.1":
   version: 2.0.4
   resolution: "@leichtgewicht/ip-codec@npm:2.0.4"
