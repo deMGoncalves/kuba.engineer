@@ -1,7 +1,7 @@
 import magic from '@kuba/magic'
 
 function render (node, element) {
-  return node.append(element[render.paint]())
+  node.append(element[render.paint]())
 }
 
 Object.assign(render, {

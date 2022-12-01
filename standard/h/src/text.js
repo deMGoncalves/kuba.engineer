@@ -4,6 +4,10 @@ class Text {
   #node
   #textContent
 
+  static get #allowedTypes () {
+    return ['Array', 'Boolean', 'Date', 'Number', 'String']
+  }
+
   constructor (textContent) {
     this.#textContent = textContent
   }
@@ -13,14 +17,20 @@ class Text {
     return this.#node
   }
 
-  static mapper (nodeList) {
-    return nodeList.map((child) => {
-      const types = ['String', 'Number', 'Boolean', 'Date', 'Array']
-      const target = {}.toString.call(child).slice(8, -1)
-      return types.includes(target)
-        ? new Text(child)
-        : child
-    })
+  static #create (node) {
+    return new Text(node)
+  }
+
+  static #is (node) {
+    const type = {}.toString.call(node).slice(8, -1)
+    return Text.#allowedTypes.includes(type)
+  }
+
+  static mapper (childList) {
+    return childList
+      .map((node) => (
+        Text.#is(node) ? Text.#create(node) : node
+      ))
   }
 }
 
