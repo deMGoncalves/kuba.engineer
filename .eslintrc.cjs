@@ -21,18 +21,18 @@ module.exports = {
     'jest'
   ],
   rules: {
-    '@typescript-eslint/no-var-requires': 'off',
-    'jest/no-disabled-tests': 'warn',
-    'jest/no-focused-tests': 'error',
-    'jest/no-identical-title': 'error',
-    'jest/prefer-to-have-length': 'warn',
-    'jest/valid-expect': 'error',
-    'no-unused-vars': [
+    '@typescript-eslint/no-unused-vars': [
       'error',
       {
         varsIgnorePattern: '^(h|Fragment)$',
         argsIgnorePattern: '^_'
       }
-    ]
+    ],
+    '@typescript-eslint/no-var-requires': 'off',
+    'jest/no-disabled-tests': 'warn',
+    'jest/no-focused-tests': 'error',
+    'jest/no-identical-title': 'error',
+    'jest/prefer-to-have-length': 'warn',
+    'jest/valid-expect': 'error'
   }
 }
