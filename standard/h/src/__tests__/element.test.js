@@ -13,7 +13,7 @@ describe('standard.h.element', () => {
   })
 
   test('Cria um elemento', () => {
-    expect(Element.create(nodeName)).toBeInstanceOf(Element)
+    expect(Element.create(nodeName, {}, [])).toBeInstanceOf(Element)
   })
 
   test('Cria um HTMLElement', () => {
