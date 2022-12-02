@@ -14,10 +14,10 @@ class ClassName {
     this.#element = element
   }
 
-  [render.paint] () {
+  [render.flow] () {
     const target = this.#element[ClassName.target]()
     this.#className && (
-      target.className = this.#className
+      Reflect.set(target, 'className', this.#className)
     )
     return this
   }
@@ -28,8 +28,8 @@ class ClassName {
     return new ClassName(className, element)
   }
 
-  static #is ([key, className]) {
-    return /^(?<attrs>className)$/.test(key) && className !== undefined
+  static #is ([key, value]) {
+    return /^(?<attr>className)$/.test(key) && value !== undefined
   }
 }
 
