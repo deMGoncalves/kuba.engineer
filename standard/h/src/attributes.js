@@ -15,7 +15,7 @@ class Attributes {
     this.#element = element
   }
 
-  [render.paint] () {
+  [render.flow] () {
     const target = this.#element[Attributes.target]()
     this.#attrList.forEach((attr) => target.setAttribute(...attr))
     return this
