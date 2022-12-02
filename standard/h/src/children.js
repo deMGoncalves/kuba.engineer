@@ -15,14 +15,15 @@ class Children {
     this.#element = element
   }
 
-  [render.paint] () {
-    const childList = this.#childList.map((child) => child[render.paint]())
+  [render.flow] () {
+    const childList = this.#childList.map((child) => child[render.flow]())
     const parent = this.#element[Children.parent]()
     parent.append(...childList)
     return this
   }
 
   static create (childList, element) {
+    childList = childList.filter(Boolean)
     childList = Text.mapper(childList)
     return new Children(childList, element)
   }
