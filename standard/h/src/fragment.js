@@ -1,5 +1,6 @@
 import Children from './children'
 import render from './render'
+import repaint from './repaint'
 
 class Fragment {
   #children
@@ -13,10 +14,14 @@ class Fragment {
     return this.#node
   }
 
-  [render.paint] () {
+  [render.flow] () {
     this.#node ??= document.createDocumentFragment()
-    this.#children[render.paint]()
+    this.#children[render.flow]()
     return this.#node
+  }
+
+  [repaint.reflow] (_ast) {
+    return this
   }
 
   static execute (attrs, children) {
