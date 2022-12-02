@@ -1,11 +1,15 @@
 import Attributes from './attributes'
 import Children from './children'
 import ClassName from './className'
+import didMount from './didMount'
+import didUpdate from './didUpdate'
 import Events from './events'
 import Is from './is'
 import overload from '@kuba/overload'
 import render from './render'
 import repaint from './repaint'
+import willMount from './willMount'
+import willUpdate from './willUpdate'
 
 class Element {
   #attributes
@@ -34,6 +38,8 @@ class Element {
     return this.#node
   }
 
+  @didMount
+  @willMount
   [render.flow] () {
     this.#node ??= document.createElement(this.#nodeName, { is: this.#is })
     this.#events[render.flow]()
@@ -43,6 +49,8 @@ class Element {
     return this.#node
   }
 
+  @didUpdate
+  @willUpdate
   [repaint.reflow] (_ast) {
     return this
   }

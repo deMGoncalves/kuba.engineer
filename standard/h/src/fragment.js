@@ -1,6 +1,10 @@
 import Children from './children'
+import didMount from './didMount'
+import didUpdate from './didUpdate'
 import render from './render'
 import repaint from './repaint'
+import willMount from './willMount'
+import willUpdate from './willUpdate'
 
 class Fragment {
   #children
@@ -14,12 +18,16 @@ class Fragment {
     return this.#node
   }
 
+  @didMount
+  @willMount
   [render.flow] () {
     this.#node ??= document.createDocumentFragment()
     this.#children[render.flow]()
     return this.#node
   }
 
+  @didUpdate
+  @willUpdate
   [repaint.reflow] (_ast) {
     return this
   }

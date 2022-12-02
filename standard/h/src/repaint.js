@@ -6,7 +6,7 @@ function repaint (target, prop, descriptor) {
   Object.defineProperty(target, prop, {
     ...descriptor,
     value () {
-      setImmediate(this[repaint.reflow])
+      setTimeout(this[repaint.reflow])
       return Reflect.apply(method, this, arguments)
     }
   })

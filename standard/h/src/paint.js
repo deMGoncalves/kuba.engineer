@@ -1,3 +1,4 @@
+import magic from '@kuba/magic'
 import render from './render'
 import repaint from './repaint'
 
@@ -16,6 +17,10 @@ function paint (component) {
           [repaint.reflow]: () => ast[repaint.reflow](component(instance, children))
         })
 
+        Object.assign(ast, {
+          [paint.instance]: instance
+        })
+
         return (this instanceof Klass)
           ? instance
           : ast
@@ -26,5 +31,9 @@ function paint (component) {
       }
     )
 }
+
+Object.assign(paint, {
+  instance: magic.paint_instance
+})
 
 export default paint
