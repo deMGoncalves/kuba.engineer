@@ -1,11 +1,11 @@
 import magic from '@kuba/magic'
 
 function render (node, element) {
-  node.append(element[render.paint]())
+  node.append(element[render.flow]())
 }
 
 Object.assign(render, {
-  paint: magic.render_paint
+  flow: magic.render_flow
 })
 
 export default render
