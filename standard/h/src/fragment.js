@@ -31,6 +31,3 @@ class Fragment {
 }
 
 export default Fragment.execute
-export {
-  Fragment
-}
