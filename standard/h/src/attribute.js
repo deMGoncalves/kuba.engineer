@@ -24,7 +24,7 @@ class Attribute {
   }
 
   static #is ([key, value]) {
-    return !/^(?<attributes>className|is|on[A-Z].+)$/.test(key) && value !== undefined
+    return !/^(?<attrs>className|is|on[A-Z].+)$/.test(key) && value !== undefined
   }
 
   static mapper (attrList) {
