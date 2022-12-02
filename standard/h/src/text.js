@@ -1,19 +1,19 @@
 import render from './render'
 
 class Text {
+  #content
   #node
-  #textContent
 
   static get #allowedTypes () {
     return ['Array', 'Boolean', 'Date', 'Number', 'String']
   }
 
-  constructor (textContent) {
-    this.#textContent = textContent
+  constructor (content) {
+    this.#content = content
   }
 
-  [render.paint] () {
-    this.#node ??= document.createTextNode(this.#textContent)
+  [render.flow] () {
+    this.#node ??= document.createTextNode(this.#content)
     return this.#node
   }
 
@@ -21,15 +21,15 @@ class Text {
     return new Text(node)
   }
 
-  static #is (node) {
-    const type = {}.toString.call(node).slice(8, -1)
+  static #is (child) {
+    const type = {}.toString.call(child).slice(8, -1)
     return Text.#allowedTypes.includes(type)
   }
 
   static mapper (childList) {
     return childList
-      .map((node) => (
-        Text.#is(node) ? Text.#create(node) : node
+      .map((child) => (
+        Text.#is(child) ? Text.#create(child) : child
       ))
   }
 }
