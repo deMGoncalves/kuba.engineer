@@ -1,7 +1,7 @@
 export default (...args) =>
   (target, method) => (
-    args.forEach((key) => (
-      Object.defineProperty(target, key, {
+    args.forEach((prop) => (
+      Object.defineProperty(target, prop, {
         value () {
           return this[method](...arguments)
         }
