@@ -1,5 +1,6 @@
 import magic from '@kuba/magic'
 import render from './render'
+import repaint from './repaint'
 
 class ClassName {
   #element
@@ -19,6 +20,10 @@ class ClassName {
     this.#className && (
       Reflect.set(target, 'className', this.#className)
     )
+    return this
+  }
+
+  [repaint.reflow] (_className) {
     return this
   }
 

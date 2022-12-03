@@ -1,10 +1,9 @@
 import magic from '@kuba/magic'
 
-function repaint (target, prop, descriptor) {
+function repaint (_target, _prop, descriptor) {
   const method = descriptor.value
 
-  Object.defineProperty(target, prop, {
-    ...descriptor,
+  Object.assign(descriptor, {
     value () {
       setTimeout(this[repaint.reflow])
       return Reflect.apply(method, this, arguments)

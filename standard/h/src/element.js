@@ -20,6 +20,22 @@ class Element {
   #node
   #nodeName
 
+  get attributes () {
+    return this.#attributes
+  }
+
+  get children () {
+    return this.#children
+  }
+
+  get className () {
+    return this.#className
+  }
+
+  get events () {
+    return this.#events
+  }
+
   constructor (nodeName, attrs, children) {
     this.#nodeName = nodeName
     this.#attributes = Attributes.create(attrs, this)
@@ -42,16 +58,20 @@ class Element {
   @willMount
   [render.flow] () {
     this.#node ??= document.createElement(this.#nodeName, { is: this.#is })
-    this.#events[render.flow]()
-    this.#attributes[render.flow]()
-    this.#className[render.flow]()
-    this.#children[render.flow]()
+    this.events[render.flow]()
+    this.attributes[render.flow]()
+    this.className[render.flow]()
+    this.children[render.flow]()
     return this.#node
   }
 
   @didUpdate
   @willUpdate
-  [repaint.reflow] (_ast) {
+  [repaint.reflow] (element) {
+    this.events[repaint.reflow](element.events)
+    this.attributes[repaint.reflow](element.attributes)
+    this.className[repaint.reflow](element.className)
+    this.children[repaint.reflow](element.children)
     return this
   }
 

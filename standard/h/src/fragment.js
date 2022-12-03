@@ -10,6 +10,10 @@ class Fragment {
   #children
   #node
 
+  get children () {
+    return this.#children
+  }
+
   constructor (_attrs, children) {
     this.#children = Children.create(children, this)
   }
@@ -22,13 +26,14 @@ class Fragment {
   @willMount
   [render.flow] () {
     this.#node ??= document.createDocumentFragment()
-    this.#children[render.flow]()
+    this.children[render.flow]()
     return this.#node
   }
 
   @didUpdate
   @willUpdate
-  [repaint.reflow] (_ast) {
+  [repaint.reflow] (fragment) {
+    this.children[repaint.reflow](fragment.children)
     return this
   }
 

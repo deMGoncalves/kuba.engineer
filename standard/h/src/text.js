@@ -1,4 +1,5 @@
 import render from './render'
+import repaint from './repaint'
 
 class Text {
   #content
@@ -15,6 +16,10 @@ class Text {
   [render.flow] () {
     this.#node ??= document.createTextNode(this.#content)
     return this.#node
+  }
+
+  [repaint.reflow] (_text) {
+    return this
   }
 
   static #create (node) {

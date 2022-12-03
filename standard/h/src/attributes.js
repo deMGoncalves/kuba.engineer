@@ -1,6 +1,7 @@
 import Attribute from './attribute'
 import magic from '@kuba/magic'
 import render from './render'
+import repaint from './repaint'
 
 class Attributes {
   #attrList
@@ -18,6 +19,10 @@ class Attributes {
   [render.flow] () {
     const target = this.#element[Attributes.target]()
     this.#attrList.forEach((attr) => target.setAttribute(...attr))
+    return this
+  }
+
+  [repaint.reflow] (_attributes) {
     return this
   }
 

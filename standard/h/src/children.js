@@ -1,5 +1,6 @@
 import magic from '@kuba/magic'
 import render from './render'
+import repaint from './repaint'
 import Text from './text'
 
 class Children {
@@ -22,9 +23,13 @@ class Children {
     return this
   }
 
+  [repaint.reflow] (_children) {
+    return this
+  }
+
   static create (childList, element) {
-    childList = childList.filter(Boolean)
     childList = Text.mapper(childList)
+    childList = childList.filter(Boolean)
     return new Children(childList, element)
   }
 }

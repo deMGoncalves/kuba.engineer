@@ -1,6 +1,7 @@
 import Event from './event'
 import magic from '@kuba/magic'
 import render from './render'
+import repaint from './repaint'
 
 class Events {
   #element
@@ -18,6 +19,10 @@ class Events {
   [render.flow] () {
     const target = this.#element[Events.target]()
     this.#eventList.forEach(({ name, listener }) => Reflect.set(target, name, listener))
+    return this
+  }
+
+  [repaint.reflow] (_events) {
     return this
   }
 
