@@ -2,10 +2,16 @@ import Element from '../element'
 import render from '../render'
 
 describe('standard.h.element', () => {
+  let createElement
   let nodeName
 
   beforeEach(() => {
+    createElement = jest.spyOn(document, 'createElement')
     nodeName = 'DIV'
+  })
+
+  afterEach(() => {
+    jest.clearAllMocks()
   })
 
   test('Retorna truthy quando o nodeName for uma string', () => {
@@ -16,9 +22,7 @@ describe('standard.h.element', () => {
     expect(Element.create(nodeName, {}, [])).toBeInstanceOf(Element)
   })
 
-  test.skip('Cria um HTMLElement', () => {
-    const createElement = jest.spyOn(document, 'createElement')
-
+  test('Cria um HTMLElement', () => {
     const element = Element.create(nodeName, {}, [])
     const node = element[render.flow]()
 
@@ -26,6 +30,6 @@ describe('standard.h.element', () => {
     expect(node.nodeName).toBe(nodeName)
 
     expect(createElement).toHaveBeenCalledTimes(1)
-    expect(createElement).toHaveBeenCalledWith(nodeName)
+    expect(createElement).toHaveBeenCalledWith(nodeName, { is: {} })
   })
 })
