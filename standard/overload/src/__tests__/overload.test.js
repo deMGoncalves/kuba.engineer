@@ -8,7 +8,7 @@ describe('standard.overload', () => {
       'methodZ'
     )
     methodA () {
-      return this
+      return 333
     }
   }
 
@@ -40,5 +40,11 @@ describe('standard.overload', () => {
     expect(methodA).toHaveBeenCalledWith(1, 2, 3)
   })
 
-  test.todo('Retorno do metodo A sera o mesmo dos metodo (X, Y e Z)')
+  test('Retorno do metodo A sera o mesmo dos metodo (X, Y e Z)', () => {
+    const output = sparring.methodA()
+
+    expect(sparring.methodX()).toBe(output)
+    expect(sparring.methodY()).toBe(output)
+    expect(sparring.methodZ()).toBe(output)
+  })
 })
