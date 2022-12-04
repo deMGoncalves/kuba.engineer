@@ -1,11 +1,26 @@
 import overload from '../overload'
 
 describe('standard.overload', () => {
-  test('Cria metodos que apontam para o metodo alvo', () => {
-    const defineProperty = jest.spyOn(Object, 'defineProperty')
-    const args = ['keyA', 'keyB']
+  class Sparring {
+    @overload(
+      'methodX',
+      'methodY',
+      'methodZ'
+    )
+    methodA () {
+      return this
+    }
+  }
 
-    overload(...args)({}, '')
-    expect(defineProperty).toHaveBeenCalledTimes(2)
+  test('Executa o metodo A quando os metodos apendados (X, Y e Z) forem executados', () => {
+    const methodA = jest.spyOn(Sparring.prototype, 'methodA')
+    const sparring = new Sparring()
+
+    sparring.methodX()
+    sparring.methodY()
+    sparring.methodZ()
+    sparring.methodA()
+
+    expect(methodA).toHaveBeenCalledTimes(4)
   })
 })
