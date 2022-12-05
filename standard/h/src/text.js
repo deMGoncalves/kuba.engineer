@@ -9,6 +9,10 @@ class Text {
     return ['Array', 'Boolean', 'Date', 'Number', 'String']
   }
 
+  get content () {
+    return this.#content
+  }
+
   constructor (content) {
     this.#content = content
   }
@@ -18,7 +22,10 @@ class Text {
     return this.#node
   }
 
-  [repaint.reflow] (_text) {
+  [repaint.reflow] (text) {
+    (this.content !== text.content) && (
+      this.#content = text.content
+    )
     return this
   }
 
