@@ -6,6 +6,10 @@ class ClassName {
   #element
   #className
 
+  get value () {
+    return this.#className
+  }
+
   static get target () {
     return magic.classname_target
   }
@@ -23,7 +27,10 @@ class ClassName {
     return this
   }
 
-  [repaint.reflow] (_className) {
+  [repaint.reflow] (className) {
+    (this.value !== className.value) && (
+      this.#className = className.value
+    )
     return this
   }
 
