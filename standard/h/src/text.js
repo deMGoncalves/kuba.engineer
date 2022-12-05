@@ -24,7 +24,8 @@ class Text {
 
   [repaint.reflow] (text) {
     (this.content !== text.content) && (
-      this.#content = text.content
+      this.#content = text.content,
+      this.#node.textContent = text.content
     )
     return this
   }
