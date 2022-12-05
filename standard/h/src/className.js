@@ -28,8 +28,10 @@ class ClassName {
   }
 
   [repaint.reflow] (className) {
-    (this.value !== className.value) && (
-      this.#className = className.value
+    const target = this.#element[ClassName.target]()
+    this.value !== className.value && (
+      this.#className = className.value,
+      Reflect.set(target, 'className', className.value)
     )
     return this
   }
