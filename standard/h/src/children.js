@@ -1,4 +1,5 @@
 import magic from '@kuba/magic'
+import Reflow from './reflow'
 import render from './render'
 import repaint from './repaint'
 import Text from './text'
@@ -8,7 +9,7 @@ class Children {
   #element
 
   static get parent () {
-    return magic.children_parent
+    return magic.__parent__
   }
 
   constructor (childList, element) {
@@ -16,14 +17,32 @@ class Children {
     this.#element = element
   }
 
-  [render.flow] () {
-    const childList = this.#childList.map((child) => child[render.flow]())
-    const parent = this.#element[Children.parent]()
-    parent.append(...childList)
+  [Reflow.add] (nChild) {
+    this.#childList.push(nChild)
     return this
   }
 
-  [repaint.reflow] (_children) {
+  [Reflow.remove] (child) {
+    const start = this.#childList.indexOf(child)
+    this.#childList.splice(start, 1)
+    return this
+  }
+
+  [Reflow.replace] (child, nChild) {
+    const start = this.#childList.indexOf(child)
+    this.#childList.splice(start, 1, nChild)
+    return this
+  }
+
+  [render.flow] () {
+    const parent = this.#element[Children.parent]()
+    const children = this.#childList.map((child) => child[render.flow]())
+    parent.append(...children)
+    return this
+  }
+
+  [repaint.reflow] (children) {
+    Reflow.zip(this, children)
     return this
   }
 
