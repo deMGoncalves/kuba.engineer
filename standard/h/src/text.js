@@ -5,12 +5,12 @@ class Text {
   #content
   #node
 
-  static get #allowedTypes () {
-    return ['Array', 'Boolean', 'Date', 'Number', 'String']
-  }
-
   get content () {
     return this.#content
+  }
+
+  static get #allowedTypes () {
+    return ['Array', 'Boolean', 'Date', 'Number', 'String']
   }
 
   constructor (content) {
