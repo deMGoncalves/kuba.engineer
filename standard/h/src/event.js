@@ -15,6 +15,11 @@ class Event {
     this.#listener = listener
   }
 
+  * [Symbol.iterator] () {
+    yield this.name
+    yield this.listener
+  }
+
   static #create (attr) {
     return new Event(...attr)
   }
