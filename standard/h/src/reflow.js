@@ -2,18 +2,18 @@ import magic from '@kuba/magic'
 
 class Reflow {
   static get add () {
-    return magic.__add__
+    return magic.add
   }
 
   static get remove () {
-    return magic.__remove__
+    return magic.remove
   }
 
   static get replace () {
-    return magic.__replace__
+    return magic.replace
   }
 
-  static zip (_child, _nChild) {
+  static match (_children, _nChildren) {
     return undefined
   }
 }

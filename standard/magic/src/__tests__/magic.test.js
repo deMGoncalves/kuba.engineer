@@ -6,7 +6,7 @@ describe('standard.magic', () => {
 
   beforeEach(() => {
     symbol = jest.spyOn(window, 'Symbol')
-    dunder = magic.__method__
+    dunder = magic.method
   })
 
   test('Cria um simbolo usando o key como identificador', () => {
@@ -15,6 +15,6 @@ describe('standard.magic', () => {
   })
 
   test('Retorna a mesma referencia uma vez que o simbolo tenha cido criado', () => {
-    expect(dunder).toBe(magic.__method__)
+    expect(dunder).toBe(magic.method)
   })
 })

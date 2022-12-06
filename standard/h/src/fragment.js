@@ -1,10 +1,13 @@
 import Children from './children'
 import didMount from './didMount'
 import didUpdate from './didUpdate'
+import didUnmount from './didUnmount'
+import overload from '@kuba/overload'
 import render from './render'
 import repaint from './repaint'
 import willMount from './willMount'
 import willUpdate from './willUpdate'
+import willUnmount from './willUnmount'
 
 class Fragment {
   #children
@@ -18,8 +21,34 @@ class Fragment {
     this.#children = Children.create(children, this)
   }
 
-  [Children.parent] () {
-    return this.#node
+  append (childList) {
+    const nodeList = childList.map((child) => child[render.flow]())
+    this.#node.append(...nodeList)
+    return this
+  }
+
+  @overload(
+    'appendChild'
+  )
+  insertAdjacentElement (child) {
+    const [...childList] = this.#children
+    const lastChild = childList.pop()
+    lastChild.insertAdjacentElement(child)
+    return this
+  }
+
+  @didUnmount
+  @willUnmount
+  remove () {
+    const [...childList] = this.#children
+    childList.forEach((child) => child.remove())
+    return this
+  }
+
+  replace (child, nChild) {
+    child.insertAdjacentElement(nChild)
+    child.remove()
+    return this
   }
 
   @didMount

@@ -3,13 +3,14 @@ import Children from './children'
 import ClassName from './className'
 import didMount from './didMount'
 import didUpdate from './didUpdate'
+import didUnmount from './didUnmount'
 import Events from './events'
 import Is from './is'
-import overload from '@kuba/overload'
 import render from './render'
 import repaint from './repaint'
 import willMount from './willMount'
 import willUpdate from './willUpdate'
+import willUnmount from './willUnmount'
 
 class Element {
   #attributes
@@ -45,12 +46,58 @@ class Element {
     this.#is = Is.create(attrs)
   }
 
-  @overload(
-    Attributes.target,
-    ClassName.target,
-    Events.target
-  )
-  [Children.parent] () {
+  addEventListener (event) {
+    Reflect.set(this.#node, event.name, event.listener)
+    return this
+  }
+
+  append (childList) {
+    const nodeList = childList.map((child) => child[render.flow]())
+    this.#node.append(...nodeList)
+    return this
+  }
+
+  appendChild (child) {
+    const node = child[render.flow]()
+    this.#node.appendChild(node)
+    return this
+  }
+
+  insertAdjacentElement (child) {
+    const node = child[render.flow]()
+    this.#node.insertAdjacentElement('afterend', node)
+    return this
+  }
+
+  @didUnmount
+  @willUnmount
+  remove () {
+    this.#node.remove()
+    return this
+  }
+
+  removeAttribute (attr) {
+    this.#node.removeAttribute(attr.key)
+    return this
+  }
+
+  removeEventListener (event) {
+    Reflect.set(this.#node, event.name, undefined)
+    return this
+  }
+
+  replace (child, nChild) {
+    child.insertAdjacentElement(nChild)
+    child.remove()
+    return this
+  }
+
+  setAttribute (attr) {
+    this.#node.setAttribute(...attr)
+    return this
+  }
+
+  [ClassName.target] () {
     return this.#node
   }
 
