@@ -11,7 +11,7 @@ describe('standard.magic', () => {
 
   test('Cria um simbolo usando o key como identificador', () => {
     expect(symbol).toHaveBeenCalledTimes(1)
-    expect(symbol).toHaveBeenCalledWith('__method__')
+    expect(symbol).toHaveBeenCalledWith('method')
   })
 
   test('Retorna a mesma referencia uma vez que o simbolo tenha cido criado', () => {
