@@ -81,8 +81,13 @@ class Element {
     return this
   }
 
+  removeClassName () {
+    delete this.#node.className
+    return this
+  }
+
   removeEventListener (event) {
-    Reflect.set(this.#node, event.name, undefined)
+    delete this.#node[event.name]
     return this
   }
 
@@ -97,8 +102,9 @@ class Element {
     return this
   }
 
-  [ClassName.target] () {
-    return this.#node
+  setClassName (className) {
+    Reflect.set(this.#node, 'className', className.value)
+    return this
   }
 
   @didMount

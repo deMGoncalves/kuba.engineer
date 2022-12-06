@@ -1,45 +1,38 @@
-import magic from '@kuba/magic'
 import render from './render'
 import repaint from './repaint'
 
 class ClassName {
-  #element
+  #target
   #className
 
   get value () {
     return this.#className
   }
 
-  static get target () {
-    return magic.classname_target
-  }
-
-  constructor (className, element) {
+  constructor (className, target) {
     this.#className = className
-    this.#element = element
+    this.#target = target
   }
 
   [render.flow] () {
-    const target = this.#element[ClassName.target]()
-    this.#className && (
-      Reflect.set(target, 'className', this.#className)
+    this.value && this.#target.setClassName(this)
+    return this
+  }
+
+  [repaint.reflow] (nClassName) {
+    (this.value !== nClassName.value) && (
+      this.#className = nClassName.value,
+      this.value
+        ? this.#target.setClassName(this)
+        : this.#target.removeClassName()
     )
     return this
   }
 
-  [repaint.reflow] (className) {
-    const target = this.#element[ClassName.target]()
-    this.value !== className.value && (
-      this.#className = className.value,
-      Reflect.set(target, 'className', className.value)
-    )
-    return this
-  }
-
-  static create (attrList, element) {
+  static create (attrList, target) {
     const [, value] = attrList.find(ClassName.#is) ?? []
     const className = [].concat(value).flat(Infinity).join(' ')
-    return new ClassName(className, element)
+    return new ClassName(className, target)
   }
 
   static #is ([key, value]) {
