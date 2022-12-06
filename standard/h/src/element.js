@@ -47,7 +47,7 @@ class Element {
   }
 
   addEventListener (event) {
-    Reflect.set(this.#node, event.name, event.listener)
+    Reflect.set(this.#node, ...event)
     return this
   }
 
