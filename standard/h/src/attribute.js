@@ -16,8 +16,8 @@ class Attribute {
   }
 
   * [Symbol.iterator] () {
-    yield this.#key
-    yield this.#value
+    yield this.key
+    yield this.value
   }
 
   static #create (attr) {
