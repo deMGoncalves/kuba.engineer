@@ -13,7 +13,18 @@ class Reflow {
     return magic.replace
   }
 
-  static match (_children, _nChildren) {
+  static #zip (children, nChildren) {
+    children = [...children]
+    nChildren = [...nChildren]
+    const n = Math.max(children.length, nChildren.length)
+    const zip = Array(n).fill(null).map((_, i) => [children[i], nChildren[i]])
+    return zip
+  }
+
+  static match (children, nChildren) {
+    Reflow
+      .#zip(children, nChildren)
+      .forEach((args) => console.log(...args))
     return undefined
   }
 }
