@@ -6,8 +6,8 @@ class Reflow {
     return magic.add
   }
 
-  static get equal () {
-    return magic.equal
+  static get different () {
+    return magic.different
   }
 
   static get remove () {
@@ -18,19 +18,22 @@ class Reflow {
     return magic.replace
   }
 
-  static #zip (children, nChildren) {
-    children = [...children]
-    nChildren = [...nChildren]
-    const n = Math.max(children.length, nChildren.length)
-    const zip = Array(n).fill(null).map((_, i) => [children[i], nChildren[i]])
+  static #zip (collection, nCollection) {
+    collection = [...collection]
+    nCollection = [...nCollection]
+    const n = Math.max(collection.length, nCollection.length)
+    const zip = Array(n).fill(null).map((_, i) => [collection[i], nCollection[i]])
     return zip
   }
 
-  static match (children, nChildren) {
+  static match (collection, nCollection) {
     Reflow
-      .#zip(children, nChildren)
-      .forEach(([child, nChild]) => {
-        child[Reflow.equal](nChild) && child[repaint.reflow](nChild)
+      .#zip(collection, nCollection)
+      .forEach(([item, nItem]) => {
+        if (!item && nItem) collection[Reflow.add](nItem)
+        if (item && !nItem) collection[Reflow.remove](item)
+        if (item[Reflow.different](nItem)) collection[Reflow.replace](item, nItem)
+        item[repaint.reflow]?.(nItem)
       })
     return Reflow
   }
