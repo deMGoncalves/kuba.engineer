@@ -3,6 +3,7 @@ import didMount from './didMount'
 import didUpdate from './didUpdate'
 import didUnmount from './didUnmount'
 import overload from '@kuba/overload'
+import paint from './paint'
 import Reflow from './reflow'
 import render from './render'
 import repaint from './repaint'
@@ -22,19 +23,19 @@ class Fragment {
     this.#children = Children.create(children, this)
   }
 
-  append (childList) {
-    const nodeList = childList.map((child) => child[render.flow]())
-    this.#node.append(...nodeList)
-    return this
-  }
-
   @overload(
     'appendChild'
   )
-  insertAdjacentElement (child) {
+  after (child) {
     const [...childList] = this.#children
     const lastChild = childList.pop()
-    lastChild.insertAdjacentElement(child)
+    lastChild.after(child)
+    return this
+  }
+
+  append (childList) {
+    const nodeList = childList.map((child) => child[render.flow]())
+    this.#node.append(...nodeList)
     return this
   }
 
@@ -52,8 +53,8 @@ class Fragment {
     return this
   }
 
-  [Reflow.equal] (_nFragment) {
-    return true
+  [Reflow.diffent] (nFragment) {
+    return this[paint.instance] !== nFragment[paint.instance]
   }
 
   @didMount
