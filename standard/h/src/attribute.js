@@ -1,3 +1,5 @@
+import Reflow from './reflow'
+
 class Attribute {
   #key
   #value
@@ -13,6 +15,13 @@ class Attribute {
   constructor (key, value) {
     this.#key = key
     this.#value = value
+  }
+
+  [Reflow.equal] (nAttr) {
+    return (
+      this.key === nAttr.key &&
+      this.value === nAttr.value
+    )
   }
 
   * [Symbol.iterator] () {
