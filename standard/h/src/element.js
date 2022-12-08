@@ -6,6 +6,7 @@ import didUpdate from './didUpdate'
 import didUnmount from './didUnmount'
 import Events from './events'
 import Is from './is'
+import paint from './paint'
 import Reflow from './reflow'
 import render from './render'
 import repaint from './repaint'
@@ -56,6 +57,12 @@ class Element {
     return this
   }
 
+  after (child) {
+    const node = child[render.flow]()
+    this.#node.after(node)
+    return this
+  }
+
   append (childList) {
     const nodeList = childList.map((child) => child[render.flow]())
     this.#node.append(...nodeList)
@@ -65,12 +72,6 @@ class Element {
   appendChild (child) {
     const node = child[render.flow]()
     this.#node.appendChild(node)
-    return this
-  }
-
-  insertAdjacentElement (child) {
-    const node = child[render.flow]()
-    this.#node.insertAdjacentElement('afterend', node)
     return this
   }
 
@@ -97,7 +98,7 @@ class Element {
   }
 
   replace (child, nChild) {
-    child.insertAdjacentElement(nChild)
+    child.after(nChild)
     child.remove()
     return this
   }
@@ -112,8 +113,11 @@ class Element {
     return this
   }
 
-  [Reflow.equal] (nElement) {
-    return this.nodeName === nElement.nodeName
+  [Reflow.different] (nElement) {
+    return (
+      this[paint.instance] !== nElement[paint.instance] ||
+      this.nodeName !== nElement.nodeName
+    )
   }
 
   @didMount
