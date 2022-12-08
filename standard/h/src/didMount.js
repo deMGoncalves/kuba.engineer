@@ -2,27 +2,29 @@ import magic from '@kuba/magic'
 import paint from './paint'
 
 function didMount (_target, _prop, descriptor) {
-  const method = descriptor.value
+  const event = (this?.event ?? magic.didMount)
+  const next = descriptor.value
+
   Object.assign(descriptor, {
     value () {
-      this[paint.instance]?.[didMount.event]?.()
-      return Reflect.apply(method, this, arguments)
-    }
+      this[paint.instance]?.[event]?.()
+      return Reflect.apply(next, this, arguments)
+    },
+    writable: true
   })
 }
 
-function hook (target, method) {
-  Object.defineProperty(target, didMount.event, {
+function hook (target, prop) {
+  const event = (this?.event ?? magic.didMount)
+
+  Object.defineProperty(target, event, {
     value () {
-      this[method]()
+      this[prop]()
       return this
-    }
+    },
+    writable: true
   })
 }
-
-Object.assign(didMount, {
-  event: magic.didMount
-})
 
 export default didMount
 export {
