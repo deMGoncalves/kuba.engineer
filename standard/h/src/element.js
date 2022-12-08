@@ -6,6 +6,7 @@ import didUpdate from './didUpdate'
 import didUnmount from './didUnmount'
 import Events from './events'
 import Is from './is'
+import Reflow from './reflow'
 import render from './render'
 import repaint from './repaint'
 import willMount from './willMount'
@@ -35,6 +36,10 @@ class Element {
 
   get events () {
     return this.#events
+  }
+
+  get nodeName () {
+    return this.#nodeName
   }
 
   constructor (nodeName, attrs, children) {
@@ -107,10 +112,14 @@ class Element {
     return this
   }
 
+  [Reflow.equal] (nElement) {
+    return this.nodeName === nElement.nodeName
+  }
+
   @didMount
   @willMount
   [render.flow] () {
-    this.#node ??= document.createElement(this.#nodeName, { is: this.#is })
+    this.#node ??= document.createElement(this.nodeName, { is: this.#is })
     this.events[render.flow]()
     this.attributes[render.flow]()
     this.className[render.flow]()
