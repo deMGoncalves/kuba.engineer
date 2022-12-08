@@ -1,3 +1,4 @@
+import Reflow from './reflow'
 import render from './render'
 import repaint from './repaint'
 
@@ -15,6 +16,10 @@ class Text {
 
   constructor (content) {
     this.#content = content
+  }
+
+  [Reflow.equal] (nText) {
+    return this.content === nText.content
   }
 
   [render.flow] () {
