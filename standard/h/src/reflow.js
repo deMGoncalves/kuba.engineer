@@ -1,8 +1,13 @@
 import magic from '@kuba/magic'
+import repaint from './repaint'
 
 class Reflow {
   static get add () {
     return magic.add
+  }
+
+  static get equal () {
+    return magic.equal
   }
 
   static get remove () {
@@ -24,8 +29,10 @@ class Reflow {
   static match (children, nChildren) {
     Reflow
       .#zip(children, nChildren)
-      .forEach((args) => console.log(...args))
-    return undefined
+      .forEach(([child, nChild]) => {
+        child[Reflow.equal](nChild) && child[repaint.reflow](nChild)
+      })
+    return Reflow
   }
 }
 
