@@ -1,4 +1,4 @@
-import h, { Fragment, paint, render, repaint } from '@kuba/h'
+import h, { didMount, didUpdate, Fragment, paint, render, repaint } from '@kuba/h'
 
 const component = (props) => (
   <>
@@ -15,10 +15,19 @@ class Contador {
     return this.#value
   }
 
+  @didMount
+  mount () {
+    return this
+  }
+
+  @didUpdate
+  update () {
+    return this
+  }
+
   @repaint
   onClick () {
     this.#value += 1
-    console.log(this.#value)
     return this
   }
 }
