@@ -24,5 +24,6 @@ export PORT=4000
 
 ```bash
 corepack enable
+yarn set version 3.2.4
 yarn install
 ```
