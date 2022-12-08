@@ -1,5 +1,5 @@
 import Event from './event'
-import Reflow from './reflow'
+import reflow from './reflow'
 import render from './render'
 import repaint from './repaint'
 
@@ -12,20 +12,20 @@ class Events {
     this.#target = target
   }
 
-  [Reflow.add] (nEvent) {
+  [reflow.add] (nEvent) {
     this.#eventList.push(nEvent)
     this.#target.addEventListener(nEvent)
     return this
   }
 
-  [Reflow.remove] (event) {
+  [reflow.remove] (event) {
     const start = this.#eventList.indexOf(event)
     this.#eventList.splice(start, 1)
     this.#target.removeEventListener(event)
     return this
   }
 
-  [Reflow.replace] (event, nEvent) {
+  [reflow.replace] (event, nEvent) {
     const start = this.#eventList.indexOf(event)
     this.#eventList.splice(start, 1, nEvent)
     this.#target.removeEventListener(event)
@@ -39,7 +39,7 @@ class Events {
   }
 
   [repaint.reflow] (nEvent) {
-    Reflow.match(this, nEvent)
+    reflow(this, nEvent)
     return this
   }
 

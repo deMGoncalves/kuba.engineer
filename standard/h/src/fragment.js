@@ -4,7 +4,7 @@ import didUpdate from './didUpdate'
 import didUnmount from './didUnmount'
 import overload from '@kuba/overload'
 import paint from './paint'
-import Reflow from './reflow'
+import reflow from './reflow'
 import render from './render'
 import repaint from './repaint'
 import willMount from './willMount'
@@ -53,7 +53,7 @@ class Fragment {
     return this
   }
 
-  [Reflow.diffent] (nFragment) {
+  [reflow.diffent] (nFragment) {
     return this[paint.instance] !== nFragment[paint.instance]
   }
 

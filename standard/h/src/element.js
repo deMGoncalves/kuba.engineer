@@ -7,7 +7,7 @@ import didUnmount from './didUnmount'
 import Events from './events'
 import Is from './is'
 import paint from './paint'
-import Reflow from './reflow'
+import reflow from './reflow'
 import render from './render'
 import repaint from './repaint'
 import willMount from './willMount'
@@ -117,7 +117,7 @@ class Element {
     return this.#node
   }
 
-  [Reflow.different] (nElement) {
+  [reflow.different] (nElement) {
     return (
       this[paint.instance] !== nElement[paint.instance] ||
       this.nodeName !== nElement.nodeName

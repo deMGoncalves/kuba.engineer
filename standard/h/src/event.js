@@ -1,4 +1,4 @@
-import Reflow from './reflow'
+import reflow from './reflow'
 
 class Event {
   #listener
@@ -17,7 +17,7 @@ class Event {
     this.#listener = listener
   }
 
-  [Reflow.different] (nEvent) {
+  [reflow.different] (nEvent) {
     return (
       this.name !== nEvent.name ||
       this.listener !== nEvent.listener

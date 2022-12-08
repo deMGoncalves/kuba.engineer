@@ -1,42 +1,28 @@
 import magic from '@kuba/magic'
 import repaint from './repaint'
 
-class Reflow {
-  static get add () {
-    return magic.add
-  }
-
-  static get different () {
-    return magic.different
-  }
-
-  static get remove () {
-    return magic.remove
-  }
-
-  static get replace () {
-    return magic.replace
-  }
-
-  static #zip (collection, nCollection) {
-    collection = [...collection]
-    nCollection = [...nCollection]
-    const n = Math.max(collection.length, nCollection.length)
-    const zip = Array(n).fill(null).map((_, i) => [collection[i], nCollection[i]])
-    return zip
-  }
-
-  static match (collection, nCollection) {
-    Reflow
-      .#zip(collection, nCollection)
-      .forEach(([item, nItem]) => {
-        if (!item && nItem) collection[Reflow.add](nItem)
-        if (item && !nItem) collection[Reflow.remove](item)
-        if (item[Reflow.different](nItem)) collection[Reflow.replace](item, nItem)
-        item[repaint.reflow]?.(nItem)
-      })
-    return Reflow
-  }
+function zip (rTarget, vTarget) {
+  rTarget = [...rTarget]
+  vTarget = [...vTarget]
+  const n = Math.max(rTarget.length, vTarget.length)
+  return Array(n).fill(null).map((_, i) => [rTarget[i], vTarget[i]])
 }
 
-export default Reflow
+function reflow (target) {
+  zip(...arguments)
+    .forEach(([real, virtual]) => {
+      if (!real && virtual) target[reflow.add](virtual)
+      if (real && !virtual) target[reflow.remove](real)
+      if (real[reflow.different](virtual)) target[reflow.replace](real, virtual)
+      real[repaint.reflow]?.(virtual)
+    })
+}
+
+Object.assign(reflow, {
+  add: magic.reflow_add,
+  different: magic.reflow_different,
+  remove: magic.reflow_remove,
+  replace: magic.reflow_replace
+})
+
+export default reflow

@@ -1,4 +1,4 @@
-import Reflow from './reflow'
+import reflow from './reflow'
 
 class Attribute {
   #key
@@ -17,7 +17,7 @@ class Attribute {
     this.#value = value
   }
 
-  [Reflow.different] (nAttr) {
+  [reflow.different] (nAttr) {
     return (
       this.key !== nAttr.key ||
       this.value !== nAttr.value

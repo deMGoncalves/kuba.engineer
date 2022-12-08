@@ -1,5 +1,5 @@
 import Attribute from './attribute'
-import Reflow from './reflow'
+import reflow from './reflow'
 import render from './render'
 import repaint from './repaint'
 
@@ -12,20 +12,20 @@ class Attributes {
     this.#target = target
   }
 
-  [Reflow.add] (nAttr) {
+  [reflow.add] (nAttr) {
     this.#attrList.push(nAttr)
     this.#target.setAttribute(nAttr)
     return this
   }
 
-  [Reflow.remove] (attr) {
+  [reflow.remove] (attr) {
     const start = this.#attrList.indexOf(attr)
     this.#attrList.splice(start, 1)
     this.#target.removeAttribute(attr)
     return this
   }
 
-  [Reflow.replace] (attr, nAttr) {
+  [reflow.replace] (attr, nAttr) {
     const start = this.#attrList.indexOf(attr)
     this.#attrList.splice(start, 1, nAttr)
     this.#target.removeAttribute(attr)
@@ -39,7 +39,7 @@ class Attributes {
   }
 
   [repaint.reflow] (nAttributes) {
-    Reflow.match(this, nAttributes)
+    reflow(this, nAttributes)
     return this
   }
 

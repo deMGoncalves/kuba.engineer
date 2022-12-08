@@ -1,4 +1,4 @@
-import Reflow from './reflow'
+import reflow from './reflow'
 import render from './render'
 
 class Text {
@@ -28,7 +28,7 @@ class Text {
     return this
   }
 
-  [Reflow.different] (nText) {
+  [reflow.different] (nText) {
     return this.content !== nText.content
   }
 

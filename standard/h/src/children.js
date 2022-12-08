@@ -1,4 +1,4 @@
-import Reflow from './reflow'
+import reflow from './reflow'
 import render from './render'
 import repaint from './repaint'
 import Text from './text'
@@ -12,20 +12,20 @@ class Children {
     this.#parent = parent
   }
 
-  [Reflow.add] (nChild) {
+  [reflow.add] (nChild) {
     this.#childList.push(nChild)
     this.#parent.appendChild(nChild)
     return this
   }
 
-  [Reflow.remove] (child) {
+  [reflow.remove] (child) {
     const start = this.#childList.indexOf(child)
     this.#childList.splice(start, 1)
     this.#parent.remove()
     return this
   }
 
-  [Reflow.replace] (child, nChild) {
+  [reflow.replace] (child, nChild) {
     const start = this.#childList.indexOf(child)
     this.#childList.splice(start, 1, nChild)
     this.#parent.replace(child, nChild)
@@ -38,7 +38,7 @@ class Children {
   }
 
   [repaint.reflow] (nChildren) {
-    Reflow.match(this, nChildren)
+    reflow(this, nChildren)
     return this
   }
 
