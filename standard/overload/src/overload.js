@@ -4,7 +4,8 @@ export default (...args) =>
       Object.defineProperty(target, prop, {
         value () {
           return this[method](...arguments)
-        }
+        },
+        writable: true
       })
     ))
   )
