@@ -13,6 +13,7 @@ function paint (component) {
         const ast = component(instance, children)
 
         Object.assign(instance, {
+          [paint.rootElement]: () => ast[paint.node](),
           [render.flow]: () => ast[render.flow](),
           [repaint.reflow]: () => ast[repaint.reflow](component(instance, children))
         })
@@ -33,7 +34,9 @@ function paint (component) {
 }
 
 Object.assign(paint, {
-  instance: magic.paint_instance
+  instance: magic.paint_instance,
+  node: magic.paint_node,
+  rootElement: magic.paint_rootElement
 })
 
 export default paint

@@ -113,6 +113,10 @@ class Element {
     return this
   }
 
+  [paint.node] () {
+    return this.#node
+  }
+
   [Reflow.different] (nElement) {
     return (
       this[paint.instance] !== nElement[paint.instance] ||
