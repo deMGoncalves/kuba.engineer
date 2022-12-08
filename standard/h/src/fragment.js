@@ -3,6 +3,7 @@ import didMount from './didMount'
 import didUpdate from './didUpdate'
 import didUnmount from './didUnmount'
 import overload from '@kuba/overload'
+import Reflow from './reflow'
 import render from './render'
 import repaint from './repaint'
 import willMount from './willMount'
@@ -49,6 +50,10 @@ class Fragment {
     child.insertAdjacentElement(nChild)
     child.remove()
     return this
+  }
+
+  [Reflow.equal] (_nFragment) {
+    return true
   }
 
   @didMount
