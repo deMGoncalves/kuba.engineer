@@ -3,14 +3,14 @@ import repaint from './repaint'
 
 class ClassName {
   #target
-  #className
+  #value
 
   get value () {
-    return this.#className
+    return this.#value
   }
 
   constructor (className, target) {
-    this.#className = className
+    this.#value = className
     this.#target = target
   }
 
@@ -21,7 +21,7 @@ class ClassName {
 
   [repaint.reflow] (nClassName) {
     (this.value !== nClassName.value) && (
-      this.#className = nClassName.value,
+      this.#value = nClassName.value,
       this.value
         ? this.#target.setClassName(this)
         : this.#target.removeClassName()
