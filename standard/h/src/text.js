@@ -1,6 +1,5 @@
 import Reflow from './reflow'
 import render from './render'
-import repaint from './repaint'
 
 class Text {
   #content
@@ -18,21 +17,24 @@ class Text {
     this.#content = content
   }
 
-  [Reflow.equal] (nText) {
-    return this.content === nText.content
+  after (child) {
+    const node = child[render.flow]()
+    this.#node.after(node)
+    return this
+  }
+
+  remove () {
+    this.#node.remove()
+    return this
+  }
+
+  [Reflow.different] (nText) {
+    return this.content !== nText.content
   }
 
   [render.flow] () {
     this.#node ??= document.createTextNode(this.#content)
     return this.#node
-  }
-
-  [repaint.reflow] (text) {
-    (this.content !== text.content) && (
-      this.#content = text.content,
-      this.#node.textContent = text.content
-    )
-    return this
   }
 
   static #create (node) {
