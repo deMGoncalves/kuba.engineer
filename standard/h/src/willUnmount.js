@@ -1,28 +1,9 @@
 import magic from '@kuba/magic'
-import paint from './paint'
+import willMount, { hook as _hook } from './willMount'
 
-function willUnmount (_target, _prop, descriptor) {
-  const method = descriptor.value
-  Object.assign(descriptor, {
-    value () {
-      setTimeout(() => this[paint.instance]?.[willUnmount.event]?.())
-      return Reflect.apply(method, this, arguments)
-    }
-  })
-}
-
-function hook (target, method) {
-  Object.defineProperty(target, willUnmount.event, {
-    value () {
-      this[method]()
-      return this
-    }
-  })
-}
-
-Object.assign(willUnmount, {
-  event: magic.willUnmount
-})
+const event = magic.willUnmount
+const willUnmount = willMount.bind({ event })
+const hook = _hook.bind({ event })
 
 export default willUnmount
 export {

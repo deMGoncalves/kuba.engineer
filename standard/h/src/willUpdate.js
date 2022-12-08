@@ -1,28 +1,9 @@
 import magic from '@kuba/magic'
-import paint from './paint'
+import willMount, { hook as _hook } from './willMount'
 
-function willUpdate (_target, _prop, descriptor) {
-  const method = descriptor.value
-  Object.assign(descriptor, {
-    value () {
-      setTimeout(() => this[paint.instance]?.[willUpdate.event]?.())
-      return Reflect.apply(method, this, arguments)
-    }
-  })
-}
-
-function hook (target, method) {
-  Object.defineProperty(target, willUpdate.event, {
-    value () {
-      this[method]()
-      return this
-    }
-  })
-}
-
-Object.assign(willUpdate, {
-  event: magic.willUpdate
-})
+const event = magic.willUpdate
+const willUpdate = willMount.bind({ event })
+const hook = _hook.bind({ event })
 
 export default willUpdate
 export {

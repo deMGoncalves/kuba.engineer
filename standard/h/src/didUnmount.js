@@ -1,28 +1,9 @@
+import didMount, { hook as _hook } from './didMount'
 import magic from '@kuba/magic'
-import paint from './paint'
 
-function didUnmount (_target, _prop, descriptor) {
-  const method = descriptor.value
-  Object.assign(descriptor, {
-    value () {
-      this[paint.instance]?.[didUnmount.event]?.()
-      return Reflect.apply(method, this, arguments)
-    }
-  })
-}
-
-function hook (target, method) {
-  Object.defineProperty(target, didUnmount.event, {
-    value () {
-      this[method]()
-      return this
-    }
-  })
-}
-
-Object.assign(didUnmount, {
-  event: magic.didUnmount
-})
+const event = magic.didUnmount
+const didUnmount = didMount.bind({ event })
+const hook = _hook.bind({ event })
 
 export default didUnmount
 export {
