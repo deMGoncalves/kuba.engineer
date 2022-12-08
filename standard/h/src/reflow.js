@@ -8,12 +8,12 @@ function zip (rTarget, vTarget) {
   return Array(n).fill(null).map((_, i) => [rTarget[i], vTarget[i]])
 }
 
-function reflow (target) {
+function reflow (parent) {
   zip(...arguments)
     .forEach(([real, virtual]) => {
-      if (!real && virtual) target[reflow.add](virtual)
-      if (real && !virtual) target[reflow.remove](real)
-      if (real[reflow.different](virtual)) target[reflow.replace](real, virtual)
+      if (!real && virtual) return parent[reflow.add](virtual)
+      if (real && !virtual) return parent[reflow.remove](real)
+      if (real[reflow.different](virtual)) return parent[reflow.replace](real, virtual)
       real[repaint.reflow]?.(virtual)
     })
 }
