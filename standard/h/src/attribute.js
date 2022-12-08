@@ -17,10 +17,10 @@ class Attribute {
     this.#value = value
   }
 
-  [Reflow.equal] (nAttr) {
+  [Reflow.different] (nAttr) {
     return (
-      this.key === nAttr.key &&
-      this.value === nAttr.value
+      this.key !== nAttr.key ||
+      this.value !== nAttr.value
     )
   }
 
