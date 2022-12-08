@@ -1,3 +1,5 @@
+import Reflow from './reflow'
+
 class Event {
   #listener
   #name
@@ -13,6 +15,10 @@ class Event {
   constructor (name, listener) {
     this.#name = name
     this.#listener = listener
+  }
+
+  [Reflow.equal] (_nEvent) {
+    return false
   }
 
   * [Symbol.iterator] () {
