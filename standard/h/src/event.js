@@ -17,8 +17,11 @@ class Event {
     this.#listener = listener
   }
 
-  [Reflow.equal] (_nEvent) {
-    return false
+  [Reflow.different] (nEvent) {
+    return (
+      this.name !== nEvent.name ||
+      this.listener !== nEvent.listener
+    )
   }
 
   * [Symbol.iterator] () {
