@@ -33,7 +33,7 @@ describe('standard.h.element', () => {
   test.todo('Contrato paint.node retorna a referencia do node')
   test.todo('Contrato reflow.differente valida se a referencia e nodeName sao diferentes')
 
-  test('Contrato render.flow cria um HTMLElement e executa o mesmo contrato em suas dependencias', () => {
+  test.skip('Contrato render.flow cria um HTMLElement e executa o mesmo contrato em suas dependencias', () => {
     const element = Element.create(nodeName, {}, [])
     const node = element[render.flow]()
 
