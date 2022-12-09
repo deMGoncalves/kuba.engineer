@@ -1,22 +1,22 @@
 import overload from '../overload'
 
-describe('standard.overload', () => {
-  class Sparring {
-    @overload(
-      'methodX',
-      'methodY',
-      'methodZ'
-    )
-    methodA () {
-      return 333
-    }
+class Sparring {
+  @overload(
+    'methodX',
+    'methodY',
+    'methodZ'
+  )
+  method () {
+    return 333
   }
+}
 
-  let methodA
+describe('standard.overload', () => {
+  let method
   let sparring
 
   beforeEach(() => {
-    methodA = jest.spyOn(Sparring.prototype, 'methodA')
+    method = jest.spyOn(Sparring.prototype, 'method')
     sparring = new Sparring()
   })
 
@@ -28,20 +28,20 @@ describe('standard.overload', () => {
     sparring.methodX()
     sparring.methodY()
     sparring.methodZ()
-    sparring.methodA()
+    sparring.method()
 
-    expect(methodA).toHaveBeenCalledTimes(4)
+    expect(method).toHaveBeenCalledTimes(4)
   })
 
   test('Parametros dos metodos (X, Y e Z) sera o mesmo para o metodo A', () => {
     sparring.methodX(1, 2, 3)
 
-    expect(methodA).toHaveBeenCalledTimes(1)
-    expect(methodA).toHaveBeenCalledWith(1, 2, 3)
+    expect(method).toHaveBeenCalledTimes(1)
+    expect(method).toHaveBeenCalledWith(1, 2, 3)
   })
 
   test('Retorno do metodo A sera o mesmo dos metodo (X, Y e Z)', () => {
-    const output = sparring.methodA()
+    const output = sparring.method()
 
     expect(sparring.methodX()).toBe(output)
     expect(sparring.methodY()).toBe(output)
