@@ -17,7 +17,7 @@ function willMount (_target, _prop, descriptor) {
 function hook (target, method) {
   const event = (this?.event ?? magic.willMount)
 
-  Object.defineProperty(target, event, {
+  Reflect.defineProperty(target, event, {
     value () {
       this[method]()
       return this
