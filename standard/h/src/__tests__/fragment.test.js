@@ -17,7 +17,7 @@ describe('standard.h.fragment', () => {
   test.todo('Troca um filho por outro novo filho')
   test.todo('Contrato reflow.different compara se as instancia sao diferentes')
 
-  test('Contrato render.flow cria um DocumentFragment e executa o mesmo contrato no children', () => {
+  test.skip('Contrato render.flow cria um DocumentFragment e executa o mesmo contrato no children', () => {
     const node = fragment[render.flow]()
 
     expect(node).toBeInstanceOf(DocumentFragment)
