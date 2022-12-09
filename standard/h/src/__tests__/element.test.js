@@ -22,6 +22,7 @@ describe('standard.h.element', () => {
   test.todo('Adiciona um evento no node')
   test.todo('Adiciona um novo node ao lado do node')
   test.todo('Adiciona todos os filhos no node')
+  test.todo('Adiciona um novo filho no node')
 
   test('Contrato render.flow cria um HTMLElement e executa o mesmo contrato em suas dependencias', () => {
     const element = Element.create(nodeName, {}, [])
