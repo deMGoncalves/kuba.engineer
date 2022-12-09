@@ -8,32 +8,28 @@ describe('standard.h', () => {
   })
 
   test('Cria um elemento quando o nodeName for uma string', () => {
-    jest.spyOn(Element, 'create')
-    jest.spyOn(Element, 'is')
-
+    const create = jest.spyOn(Element, 'create')
+    const is = jest.spyOn(Element, 'is')
     const nodeName = 'h1'
 
     h(nodeName, {})
 
-    expect(Element.is).toHaveBeenCalledTimes(1)
-    expect(Element.is).toHaveBeenCalledWith(nodeName)
-
-    expect(Element.create).toHaveBeenCalledTimes(1)
-    expect(Element.create).toHaveBeenCalledWith(nodeName, {}, [])
+    expect(is).toHaveBeenCalledTimes(1)
+    expect(is).toHaveBeenCalledWith(nodeName)
+    expect(create).toHaveBeenCalledTimes(1)
+    expect(create).toHaveBeenCalledWith(nodeName, {}, [])
   })
 
   test('Executa o nodeName quando for uma funcao', () => {
-    jest.spyOn(Component, 'execute')
-    jest.spyOn(Component, 'is')
-
+    const execute = jest.spyOn(Component, 'execute')
+    const is = jest.spyOn(Component, 'is')
     const nodeName = () => (undefined)
 
     h(nodeName, {})
 
-    expect(Component.is).toHaveBeenCalledTimes(1)
-    expect(Component.is).toHaveBeenCalledWith(nodeName)
-
-    expect(Component.execute).toHaveBeenCalledTimes(1)
-    expect(Component.execute).toHaveBeenCalledWith(nodeName, {}, [])
+    expect(is).toHaveBeenCalledTimes(1)
+    expect(is).toHaveBeenCalledWith(nodeName)
+    expect(execute).toHaveBeenCalledTimes(1)
+    expect(execute).toHaveBeenCalledWith(nodeName, {}, [])
   })
 })
