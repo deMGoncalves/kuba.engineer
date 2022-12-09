@@ -2,10 +2,15 @@ import Fragment from '../fragment'
 import render from '../render'
 
 describe('standard.h.fragment', () => {
-  test('Cria um DocumentFragment', () => {
-    const createDocumentFragment = jest.spyOn(document, 'createDocumentFragment')
+  let createDocumentFragment
+  let fragment
 
-    const fragment = Fragment({}, [])
+  beforeEach(() => {
+    createDocumentFragment = jest.spyOn(document, 'createDocumentFragment')
+    fragment = Fragment({}, [])
+  })
+
+  test('Contrato render.flow cria um DocumentFragment', () => {
     const node = fragment[render.flow]()
 
     expect(node).toBeInstanceOf(DocumentFragment)
