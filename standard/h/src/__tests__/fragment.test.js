@@ -10,6 +10,8 @@ describe('standard.h.fragment', () => {
     fragment = Fragment({}, [])
   })
 
+  test.todo('Atributo children eh uma referencia a instancia de Children')
+
   test('Contrato render.flow cria um DocumentFragment', () => {
     const node = fragment[render.flow]()
 
