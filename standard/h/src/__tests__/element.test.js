@@ -14,7 +14,7 @@ describe('standard.h.element', () => {
     jest.clearAllMocks()
   })
 
-  test('Retorna truthy quando o nodeName for uma string', () => {
+  test('Metodo estatico is valida se o nodeName eh um Element', () => {
     expect(Element.is(nodeName)).toBeTruthy()
   })
 
