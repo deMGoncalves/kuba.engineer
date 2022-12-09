@@ -17,7 +17,7 @@ function didMount (_target, _prop, descriptor) {
 function hook (target, prop) {
   const event = (this?.event ?? magic.didMount)
 
-  Object.defineProperty(target, event, {
+  Reflect.defineProperty(target, event, {
     value () {
       this[prop]()
       return this
