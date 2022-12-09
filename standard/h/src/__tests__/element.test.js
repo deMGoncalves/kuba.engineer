@@ -14,6 +14,8 @@ describe('standard.h.element', () => {
     jest.clearAllMocks()
   })
 
+  test.todo('Atributo attributes eh uma referencia de Attributes')
+
   test('Contrato render.flow cria um HTMLElement e executa o mesmo contrato em suas dependencias', () => {
     const element = Element.create(nodeName, {}, [])
     const node = element[render.flow]()
