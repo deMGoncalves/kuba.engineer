@@ -30,6 +30,7 @@ describe('standard.h.element', () => {
   test.todo('Troca um filho por outro novo filho')
   test.todo('Define ou altera um atribuno no node')
   test.todo('Define ou altera o className no node')
+  test.todo('Contrato paint.node retorna a referencia do node')
 
   test('Contrato render.flow cria um HTMLElement e executa o mesmo contrato em suas dependencias', () => {
     const element = Element.create(nodeName, {}, [])
