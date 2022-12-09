@@ -18,7 +18,7 @@ describe('standard.h.element', () => {
     expect(Element.is(nodeName)).toBeTruthy()
   })
 
-  test('Cria um elemento', () => {
+  test('Metodo estatico create cria uma instancia de Element', () => {
     expect(Element.create(nodeName, {}, [])).toBeInstanceOf(Element)
   })
 
