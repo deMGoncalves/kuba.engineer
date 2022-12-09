@@ -23,4 +23,6 @@ describe('standard.h.fragment', () => {
     expect(node).toBeInstanceOf(DocumentFragment)
     expect(createDocumentFragment).toHaveBeenCalledTimes(1)
   })
+
+  test.todo('Contrato repaint.reflow executa o mesmo contrato no children')
 })
