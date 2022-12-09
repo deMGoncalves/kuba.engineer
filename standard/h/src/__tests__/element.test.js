@@ -18,6 +18,7 @@ describe('standard.h.element', () => {
   test.todo('Atributo children eh uma referencia de Children')
   test.todo('Atributo className eh uma referencia de ClassName')
   test.todo('Atributo events eh uma referencia de Events')
+  test.todo('Atributo nodeName eh o nome do elemento')
 
   test('Contrato render.flow cria um HTMLElement e executa o mesmo contrato em suas dependencias', () => {
     const element = Element.create(nodeName, {}, [])
