@@ -25,4 +25,5 @@ describe('standard.h.fragment', () => {
   })
 
   test.todo('Contrato repaint.reflow executa o mesmo contrato no children')
+  test.todo('Metodo estatico create cria uma instancia do Fragment')
 })
