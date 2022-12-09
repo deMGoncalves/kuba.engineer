@@ -44,6 +44,8 @@ describe('standard.h.element', () => {
     expect(createElement).toHaveBeenCalledWith(nodeName, { is: {} })
   })
 
+  test.todo('Contrato repaint.reflow executa o contrato em suas dependencias')
+
   test('Metodo estatico is valida se o nodeName eh um Element', () => {
     expect(Element.is(nodeName)).toBeTruthy()
   })
