@@ -48,7 +48,7 @@ class Fragment {
   }
 
   replace (child, nChild) {
-    child.insertAdjacentElement(nChild)
+    child.after(nChild)
     child.remove()
     return this
   }

@@ -14,6 +14,7 @@ describe('standard.h.fragment', () => {
   test.todo('Os metodos appendChild e after executa o metodo after do ultimo child')
   test.todo('Append renderiza todos os filhos e adiciona todos os filhos no node')
   test.todo('Remove executa o metodo remove de todos os filhos')
+  test.todo('Replace insere o novo filho depois do filho que sera removido')
 
   test('Contrato render.flow cria um DocumentFragment', () => {
     const node = fragment[render.flow]()
