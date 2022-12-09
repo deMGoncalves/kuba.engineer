@@ -25,6 +25,7 @@ describe('standard.h.element', () => {
   test.todo('Adiciona um novo filho no node')
   test.todo('Remove o node do DOM')
   test.todo('Remove um atributo do node')
+  test.todo('Remove a className do node')
 
   test('Contrato render.flow cria um HTMLElement e executa o mesmo contrato em suas dependencias', () => {
     const element = Element.create(nodeName, {}, [])
