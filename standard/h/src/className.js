@@ -5,6 +5,10 @@ class ClassName {
   #target
   #value
 
+  get key () {
+    return 'className'
+  }
+
   get value () {
     return this.#value.trim()
   }
@@ -23,10 +27,15 @@ class ClassName {
     (this.value !== nClassName.value) && (
       this.#value = nClassName.value,
       this.value
-        ? this.#target.setClassName(this)
-        : this.#target.removeClassName()
+        ? this.#target.setAttribure(this)
+        : this.#target.removeAttribute()
     )
     return this
+  }
+
+  * [Symbol.iterator] () {
+    yield this.key
+    yield this.value
   }
 
   static create (attrList, target) {

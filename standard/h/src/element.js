@@ -87,11 +87,6 @@ class Element {
     return this
   }
 
-  removeClassName () {
-    delete this.#node.className
-    return this
-  }
-
   removeEventListener (event) {
     delete this.#node[event.name]
     return this
@@ -105,11 +100,6 @@ class Element {
 
   setAttribute (attr) {
     this.#node.setAttribute(...attr)
-    return this
-  }
-
-  setClassName (className) {
-    Reflect.set(this.#node, 'className', className.value)
     return this
   }
 
