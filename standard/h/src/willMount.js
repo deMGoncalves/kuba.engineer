@@ -15,12 +15,12 @@ function willMount (_target, _prop, descriptor) {
   })
 }
 
-function hook (target, method) {
+function hook (target, prop) {
   const event = (this?.event ?? magic.willMount)
 
   Reflect.defineProperty(target, event, {
     value () {
-      this[method]()
+      this[prop]()
       return this
     },
     writable: true
