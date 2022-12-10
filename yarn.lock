@@ -1020,6 +1020,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kuba/requestanimationframe@workspace:polyfill/requestAnimationFrame":
+  version: 0.0.0-use.local
+  resolution: "@kuba/requestanimationframe@workspace:polyfill/requestAnimationFrame"
+  languageName: unknown
+  linkType: soft
+
 "@kuba/setimmediate@workspace:polyfill/setImmediate":
   version: 0.0.0-use.local
   resolution: "@kuba/setimmediate@workspace:polyfill/setImmediate"
