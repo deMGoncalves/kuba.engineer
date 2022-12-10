@@ -34,7 +34,7 @@ class Attribute {
   }
 
   static #is ([key, value]) {
-    return !/^(?<attrs>className|is|on[A-Z].+)$/.test(key) && value !== undefined
+    return !/^(?<attrs>className|is|on[A-Z].+)$/.test(key) && Boolean(value)
   }
 
   static mapper (attrList) {
