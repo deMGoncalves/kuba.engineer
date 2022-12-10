@@ -1,5 +1,6 @@
 import magic from '@kuba/magic'
 import paint from './paint'
+import setImmediate from '@kuba/setimmediate'
 
 function willMount (_target, _prop, descriptor) {
   const event = (this?.event ?? magic.willMount)
@@ -7,7 +8,7 @@ function willMount (_target, _prop, descriptor) {
 
   Object.assign(descriptor, {
     value () {
-      setTimeout(() => this[paint.instance]?.[event]?.())
+      setImmediate(() => this[paint.instance]?.[event]?.())
       return Reflect.apply(next, this, arguments)
     },
     writable: true
