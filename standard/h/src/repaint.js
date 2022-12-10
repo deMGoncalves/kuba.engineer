@@ -1,11 +1,12 @@
 import magic from '@kuba/magic'
+import setImmediate from '@kuba/setimmediate'
 
 function repaint (_target, _prop, descriptor) {
   const next = descriptor.value
 
   Object.assign(descriptor, {
     value () {
-      setTimeout(this[repaint.reflow])
+      setImmediate(this[repaint.reflow])
       return Reflect.apply(next, this, arguments)
     }
   })
