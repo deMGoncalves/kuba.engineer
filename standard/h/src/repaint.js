@@ -1,12 +1,12 @@
 import magic from '@kuba/magic'
 
 function repaint (_target, _prop, descriptor) {
-  const method = descriptor.value
+  const next = descriptor.value
 
   Object.assign(descriptor, {
     value () {
       setTimeout(this[repaint.reflow])
-      return Reflect.apply(method, this, arguments)
+      return Reflect.apply(next, this, arguments)
     }
   })
 }
