@@ -16,7 +16,6 @@ describe('standard.h.element', () => {
 
   test.todo('Atributo attributes eh uma referencia de Attributes')
   test.todo('Atributo children eh uma referencia de Children')
-  test.todo('Atributo className eh uma referencia de ClassName')
   test.todo('Atributo events eh uma referencia de Events')
   test.todo('Atributo nodeName eh o nome do elemento')
   test.todo('Adiciona um evento no node')
@@ -25,7 +24,6 @@ describe('standard.h.element', () => {
   test.todo('Adiciona um novo filho no node')
   test.todo('Remove o node do DOM')
   test.todo('Remove um atributo do node')
-  test.todo('Remove a className do node')
   test.todo('Remove o evento do node')
   test.todo('Troca um filho por outro novo filho')
   test.todo('Define ou altera um atribuno no node')
