@@ -21,7 +21,7 @@ class Children {
   [reflow.remove] (child) {
     const start = this.#childList.indexOf(child)
     this.#childList.splice(start, 1)
-    this.#parent.remove()
+    child.remove()
     return this
   }
 
