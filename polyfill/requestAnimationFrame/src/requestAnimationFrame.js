@@ -1,5 +1,5 @@
 export default (functionRef) => (
-  'requestAnimationFrame' in this
+  'requestAnimationFrame' in window
     ? requestAnimationFrame(functionRef)
     : setTimeout(functionRef, 0)
 )
