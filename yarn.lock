@@ -1020,6 +1020,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kuba/setimmediate@workspace:polyfill/setImmediate":
+  version: 0.0.0-use.local
+  resolution: "@kuba/setimmediate@workspace:polyfill/setImmediate"
+  languageName: unknown
+  linkType: soft
+
 "@leichtgewicht/ip-codec@npm:^2.0.1":
   version: 2.0.4
   resolution: "@leichtgewicht/ip-codec@npm:2.0.4"
