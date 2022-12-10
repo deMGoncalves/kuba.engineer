@@ -6,7 +6,7 @@ class ClassName {
   #value
 
   get value () {
-    return this.#value
+    return this.#value.trim()
   }
 
   constructor (className, target) {
