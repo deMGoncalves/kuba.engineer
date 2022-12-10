@@ -1,12 +1,12 @@
 import magic from '@kuba/magic'
-import setImmediate from '@kuba/setimmediate'
+import requestAnimationFrame from '@kuba/requestanimationframe'
 
 function repaint (_target, _prop, descriptor) {
   const next = descriptor.value
 
   Object.assign(descriptor, {
     value () {
-      setImmediate(this[repaint.reflow])
+      requestAnimationFrame(this[repaint.reflow])
       return Reflect.apply(next, this, arguments)
     }
   })

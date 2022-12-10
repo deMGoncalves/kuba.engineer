@@ -1,6 +1,6 @@
 import magic from '@kuba/magic'
 import paint from './paint'
-import requestAnimationFrame from '@kuba/requestanimationframe'
+import setImmediate from '@kbua/setimmediate'
 
 function willMount (_target, _prop, descriptor) {
   const event = (this?.event ?? magic.willMount)
@@ -8,7 +8,7 @@ function willMount (_target, _prop, descriptor) {
 
   Object.assign(descriptor, {
     value () {
-      requestAnimationFrame(() => this[paint.instance]?.[event]?.())
+      setImmediate(() => this[paint.instance]?.[event]?.())
       return Reflect.apply(next, this, arguments)
     },
     writable: true
