@@ -1,3 +1,3 @@
-export default (callback) => (
-  setTimeout(callback, 0)
+export default (functionRef) => (
+  setTimeout(functionRef, 0)
 )
