@@ -1,4 +1,5 @@
 import magic from '@kuba/magic'
+import reflow from './reflow'
 import render from './render'
 import repaint from './repaint'
 
@@ -10,21 +11,23 @@ function paint (component) {
           ? new Klass(...arguments)
           : new Klass(props)
 
-        const ast = component(instance, children)
+        const rootAST = component(instance, children)
 
         Object.assign(instance, {
-          [paint.rootElement]: () => ast[paint.node](),
-          [render.flow]: () => ast[render.flow](),
-          [repaint.reflow]: () => ast[repaint.reflow](component(instance, children))
+          [paint.rootAST]: () => rootAST,
+          [paint.rootElement]: () => rootAST[paint.node](),
+          [reflow.different]: (nInstance) => rootAST[reflow.different](nInstance[paint.rootAST]()),
+          [render.flow]: () => rootAST[render.flow](),
+          [repaint.reflow]: () => rootAST[repaint.reflow](component(instance, children))
         })
 
-        Object.assign(ast, {
+        Object.assign(rootAST, {
           [paint.instance]: instance
         })
 
         return (this instanceof Klass)
           ? instance
-          : ast
+          : rootAST
       },
       {
         get: (_, key) => Reflect.get(Klass, key),
@@ -34,6 +37,7 @@ function paint (component) {
 }
 
 Object.assign(paint, {
+  rootAST: magic.paint_rootAST,
   instance: magic.paint_instance,
   node: magic.paint_node,
   rootElement: magic.paint_rootElement
