@@ -1,12 +1,11 @@
-export default (Klass) =>
+export default (ClassRef) =>
   new Proxy(
     function (...args) {
       let instance
-
       return new Proxy(
         {
           get instance () {
-            return (instance ??= new Klass(...args))
+            return (instance ??= new ClassRef(...args))
           }
         },
         {
@@ -23,7 +22,7 @@ export default (Klass) =>
       )
     },
     {
-      get: (_, key) => Reflect.get(Klass, key),
-      set: (_, key, value) => (Reflect.set(Klass, key, value), true)
+      get: (_, key) => Reflect.get(ClassRef, key),
+      set: (_, key, value) => (Reflect.set(ClassRef, key, value), true)
     }
   )
