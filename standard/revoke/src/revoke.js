@@ -3,19 +3,24 @@ export default (Klass) =>
     function (...args) {
       let instance
 
-      return new Proxy({}, {
-        get (_, key) {
-          const target = instance ??= new Klass(...args)
-          const prop = Reflect.get(target, key)
-          return prop?.bind?.(target) || prop
+      return new Proxy(
+        {
+          get instance () {
+            return (instance ??= new Klass(...args))
+          }
         },
+        {
+          get (target, key) {
+            const prop = Reflect.get(target.instance, key)
+            return prop?.bind?.(target.instance) || prop
+          },
 
-        set (_, key, value) {
-          const target = instance ??= new Klass(...args)
-          Reflect.set(target, key, value)
-          return true
+          set (target, key, value) {
+            Reflect.set(target.instance, key, value)
+            return true
+          }
         }
-      })
+      )
     },
     {
       get: (_, key) => Reflect.get(Klass, key),
