@@ -1026,6 +1026,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kuba/revoke@workspace:standard/revoke":
+  version: 0.0.0-use.local
+  resolution: "@kuba/revoke@workspace:standard/revoke"
+  languageName: unknown
+  linkType: soft
+
 "@kuba/setimmediate@workspace:polyfill/setImmediate":
   version: 0.0.0-use.local
   resolution: "@kuba/setimmediate@workspace:polyfill/setImmediate"
