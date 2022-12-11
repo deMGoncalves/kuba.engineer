@@ -11,7 +11,7 @@ export default (ClassRef) =>
         {
           get (target, key) {
             const prop = Reflect.get(target.instance, key)
-            return prop?.bind?.(target.instance) || prop
+            return prop?.bind?.(target.instance) ?? prop
           },
 
           set (target, key, value) {
