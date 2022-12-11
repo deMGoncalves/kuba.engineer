@@ -7,10 +7,12 @@ import paint from './paint'
 import reflow from './reflow'
 import render from './render'
 import repaint from './repaint'
+import revoke from '@kuba/revoke'
 import willMount from './willMount'
 import willUpdate from './willUpdate'
 import willUnmount from './willUnmount'
 
+@revoke
 class Fragment {
   #children
   #node
