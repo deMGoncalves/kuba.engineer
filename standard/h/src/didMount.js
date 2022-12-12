@@ -19,8 +19,7 @@ function hook (target, prop) {
 
   Reflect.defineProperty(target, event, {
     value () {
-      this[prop]()
-      return this
+      return this[prop](), this
     },
     writable: true
   })
