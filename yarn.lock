@@ -1002,6 +1002,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@kuba/f@workspace:standard/f":
+  version: 0.0.0-use.local
+  resolution: "@kuba/f@workspace:standard/f"
+  languageName: unknown
+  linkType: soft
+
 "@kuba/h@workspace:standard/h":
   version: 0.0.0-use.local
   resolution: "@kuba/h@workspace:standard/h"
