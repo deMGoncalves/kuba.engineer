@@ -5,6 +5,7 @@ import didMount from './didMount'
 import didUpdate from './didUpdate'
 import didUnmount from './didUnmount'
 import Events from './events'
+import FormAssociated from './formAssociated'
 import Is from './is'
 import paint from './paint'
 import reflow from './reflow'
@@ -43,6 +44,10 @@ class Element {
 
   get nodeName () {
     return this.#nodeName
+  }
+
+  get __node__ () {
+    return this.#node
   }
 
   constructor (nodeName, attrs, children) {
@@ -105,10 +110,6 @@ class Element {
     return this
   }
 
-  [paint.node] () {
-    return this.#node
-  }
-
   [reflow.different] (nElement) {
     return (
       this[paint.instance] !== nElement[paint.instance] ||
@@ -140,7 +141,10 @@ class Element {
   static create (nodeName, attrs, children) {
     attrs = Object.entries(attrs)
     children = children.flat(Infinity)
-    return new Element(nodeName, attrs, children)
+
+    return FormAssociated.is(nodeName)
+      ? new FormAssociated(nodeName, attrs, children)
+      : new Element(nodeName, attrs, children)
   }
 
   static is (nodeName) {
