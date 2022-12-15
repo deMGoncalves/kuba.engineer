@@ -15,7 +15,7 @@ function paint (component) {
 
         Object.assign(instance, {
           [paint.rootAST]: () => rootAST,
-          [paint.rootElement]: () => rootAST[paint.node](),
+          [paint.rootElement]: () => rootAST.__node__,
           [reflow.different]: (nInstance) => rootAST[reflow.different](nInstance[paint.rootAST]()),
           [render.flow]: () => rootAST[render.flow](),
           [repaint.reflow]: () => rootAST[repaint.reflow](component(instance, children))
@@ -39,7 +39,6 @@ function paint (component) {
 Object.assign(paint, {
   rootAST: magic.paint_rootAST,
   instance: magic.paint_instance,
-  node: magic.paint_node,
   rootElement: magic.paint_rootElement
 })
 
