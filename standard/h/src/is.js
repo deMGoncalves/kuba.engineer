@@ -1,7 +1,7 @@
 class Is {
   #value
 
-  get [Symbol.toStringTag] () {
+  get value () {
     return this.#value
   }
 
