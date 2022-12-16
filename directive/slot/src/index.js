@@ -1,1 +1,1 @@
-export { default } from '@kuba/slot'
+export { default } from './slot'
