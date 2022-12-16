@@ -1,5 +1,4 @@
 import magic from '@kuba/magic'
-import requestAnimationFrame from '@kuba/requestanimationframe'
 
 function repaint (_target, _prop, descriptor) {
   const next = descriptor.value

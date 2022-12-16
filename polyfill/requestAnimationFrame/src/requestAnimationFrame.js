@@ -1,5 +1,7 @@
-export default (functionRef) => (
-  'requestAnimationFrame' in window
-    ? requestAnimationFrame(functionRef)
-    : setTimeout(functionRef, 0)
+!('requestAnimationFrame' in window) && (
+  Reflect.defineProperty(window, 'requestAnimationFrame', {
+    value (functionRef) {
+      setTimeout(functionRef, 0)
+    }
+  })
 )

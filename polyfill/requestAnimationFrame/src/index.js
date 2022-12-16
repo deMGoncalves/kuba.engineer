@@ -1,1 +1,1 @@
-export { default } from './requestAnimationFrame'
+import './requestAnimationFrame'
