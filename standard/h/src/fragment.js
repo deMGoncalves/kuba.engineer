@@ -8,6 +8,7 @@ import reflow from './reflow'
 import render from './render'
 import repaint from './repaint'
 import revoke from '@kuba/revoke'
+import Slot from './slot'
 import willMount from './willMount'
 import willUpdate from './willUpdate'
 import willUnmount from './willUnmount'
@@ -16,13 +17,19 @@ import willUnmount from './willUnmount'
 class Fragment {
   #children
   #node
+  #slot
 
   get children () {
     return this.#children
   }
 
-  constructor (_attrs, children) {
+  get slot () {
+    return this.#slot.value
+  }
+
+  constructor (attrs, children) {
     this.#children = Children.create(children, this)
+    this.#slot = Slot.create(attrs)
   }
 
   @overload(
