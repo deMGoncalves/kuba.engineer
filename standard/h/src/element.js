@@ -43,6 +43,10 @@ class Element {
     return this.#events
   }
 
+  get is () {
+    return this.#is.value
+  }
+
   get nodeName () {
     return this.#nodeName
   }
@@ -118,16 +122,16 @@ class Element {
 
   [reflow.different] (nElement) {
     return (
-      this[paint.instance] !== nElement[paint.instance] ||
-      this.nodeName !== nElement.nodeName
-      // TODO: this.is !== nElement.is
+      this[paint.instance]?.() !== nElement[paint.instance]?.() ||
+      this.nodeName !== nElement.nodeName ||
+      this.is !== nElement.is
     )
   }
 
   @didMount
   @willMount
   [render.flow] () {
-    this.#node ??= document.createElement(this.nodeName, { is: this.#is })
+    this.#node ??= document.createElement(this.nodeName, { is: this.is })
     this.events[render.flow]()
     this.attributes[render.flow]()
     this.className[render.flow]()
