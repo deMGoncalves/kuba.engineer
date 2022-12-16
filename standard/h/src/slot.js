@@ -15,7 +15,7 @@ class Slot {
   }
 
   static #is ([key, value]) {
-    return /^(?<attr>slot)$/.test(key) && value !== undefined
+    return /^(?<attr>data-slot)$/.test(key) && value !== undefined
   }
 
   static mapper (children) {
