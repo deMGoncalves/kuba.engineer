@@ -2,6 +2,7 @@ import Children from './children'
 import didMount from './didMount'
 import didUpdate from './didUpdate'
 import didUnmount from './didUnmount'
+import Key from './key'
 import overload from '@kuba/overload'
 import paint from './paint'
 import reflow from './reflow'
@@ -16,11 +17,16 @@ import willUnmount from './willUnmount'
 @revoke
 class Fragment {
   #children
+  #key
   #node
   #slot
 
   get children () {
     return this.#children
+  }
+
+  get key () {
+    return this.#key.value
   }
 
   get slot () {
@@ -29,6 +35,7 @@ class Fragment {
 
   constructor (attrs, children) {
     this.#children = Children.create(children, this)
+    this.#key = Key.create(attrs)
     this.#slot = Slot.create(attrs)
   }
 
@@ -63,7 +70,10 @@ class Fragment {
   }
 
   [reflow.different] (nFragment) {
-    return this[paint.instance]?.() !== nFragment[paint.instance]?.()
+    return (
+      this[paint.instance]?.() !== nFragment[paint.instance]?.() ||
+      this.key !== nFragment.key
+    )
   }
 
   @didMount
