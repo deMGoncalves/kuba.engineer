@@ -1008,6 +1008,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kuba/group@workspace:polyfill/group":
+  version: 0.0.0-use.local
+  resolution: "@kuba/group@workspace:polyfill/group"
+  languageName: unknown
+  linkType: soft
+
 "@kuba/h@workspace:standard/h":
   version: 0.0.0-use.local
   resolution: "@kuba/h@workspace:standard/h"
