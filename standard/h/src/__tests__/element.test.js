@@ -18,6 +18,7 @@ describe('standard.h.element', () => {
   test.todo('Atributo children eh uma referencia de Children')
   test.todo('Atributo events eh uma referencia de Events')
   test.todo('Atributo nodeName eh o nome do elemento')
+  test.todo('Atributo __node__ retorna a referencia do node')
   test.todo('Adiciona um evento no node')
   test.todo('Adiciona um novo node ao lado do node')
   test.todo('Adiciona todos os filhos no node')
@@ -28,7 +29,6 @@ describe('standard.h.element', () => {
   test.todo('Troca um filho por outro novo filho')
   test.todo('Define ou altera um atribuno no node')
   test.todo('Define ou altera o className no node')
-  test.todo('Contrato paint.node retorna a referencia do node')
   test.todo('Contrato reflow.differente valida se a referencia e nodeName sao diferentes')
 
   test.skip('Contrato render.flow cria um HTMLElement e executa o mesmo contrato em suas dependencias', () => {
