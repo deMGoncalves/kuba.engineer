@@ -1,10 +1,9 @@
 import h, { didMount, didUpdate, Fragment, paint, render, repaint } from '@kuba/h'
-import Slot from '@kuba/slot'
 
 function WC (props, children) {
   return (
     <div>
-      <Slot name='test'>{children.test}</Slot>
+      <div>{children.test}</div>
       {children}
     </div>
   )
