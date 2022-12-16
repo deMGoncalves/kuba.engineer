@@ -1,6 +1,5 @@
 import magic from '@kuba/magic'
 import paint from './paint'
-import setImmediate from '@kuba/setimmediate'
 
 function willMount (_target, _prop, descriptor) {
   const event = (this?.event ?? magic.willMount)
