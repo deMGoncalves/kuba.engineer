@@ -6,7 +6,7 @@ class ClassName {
   #value
 
   get key () {
-    return 'className'
+    return 'class'
   }
 
   get value () {
@@ -19,7 +19,7 @@ class ClassName {
   }
 
   [render.flow] () {
-    this.value && this.#target.setClassName(this)
+    this.value && this.#target.setAttribute(this)
     return this
   }
 
@@ -27,7 +27,7 @@ class ClassName {
     (this.value !== nClassName.value) && (
       this.#value = nClassName.value,
       this.value
-        ? this.#target.setAttribure(this)
+        ? this.#target.setAttribute(this)
         : this.#target.removeAttribute()
     )
     return this
