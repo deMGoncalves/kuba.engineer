@@ -22,7 +22,7 @@ function paint (component) {
         })
 
         Object.assign(rootAST, {
-          [paint.instance]: instance
+          [paint.instance]: () => instance
         })
 
         return (this instanceof Klass)
