@@ -55,8 +55,8 @@ class Fragment {
     return this
   }
 
-  [reflow.diffent] (nFragment) {
-    return this[paint.instance] !== nFragment[paint.instance]
+  [reflow.different] (nFragment) {
+    return this[paint.instance]?.() !== nFragment[paint.instance]?.()
   }
 
   @didMount
