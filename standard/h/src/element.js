@@ -5,13 +5,13 @@ import didMount from './didMount'
 import didUpdate from './didUpdate'
 import didUnmount from './didUnmount'
 import Events from './events'
-import FormAssociated from './formAssociated'
 import Is from './is'
 import paint from './paint'
 import reflow from './reflow'
 import render from './render'
 import repaint from './repaint'
 import revoke from '@kuba/revoke'
+import Slot from './slot'
 import willMount from './willMount'
 import willUpdate from './willUpdate'
 import willUnmount from './willUnmount'
@@ -25,6 +25,7 @@ class Element {
   #is
   #node
   #nodeName
+  #slot
 
   get attributes () {
     return this.#attributes
@@ -46,6 +47,10 @@ class Element {
     return this.#nodeName
   }
 
+  get slot () {
+    return this.#slot.value
+  }
+
   get __node__ () {
     return this.#node
   }
@@ -57,6 +62,7 @@ class Element {
     this.#className = ClassName.create(attrs, this)
     this.#events = Events.create(attrs, this)
     this.#is = Is.create(attrs)
+    this.#slot = Slot.create(attrs)
   }
 
   addEventListener (event) {
@@ -114,6 +120,7 @@ class Element {
     return (
       this[paint.instance] !== nElement[paint.instance] ||
       this.nodeName !== nElement.nodeName
+      // TODO: this.is !== nElement.is
     )
   }
 
@@ -130,21 +137,18 @@ class Element {
 
   @didUpdate
   @willUpdate
-  [repaint.reflow] (element) {
-    this.events[repaint.reflow](element.events)
-    this.attributes[repaint.reflow](element.attributes)
-    this.className[repaint.reflow](element.className)
-    this.children[repaint.reflow](element.children)
+  [repaint.reflow] (nElement) {
+    this.events[repaint.reflow](nElement.events)
+    this.attributes[repaint.reflow](nElement.attributes)
+    this.className[repaint.reflow](nElement.className)
+    this.children[repaint.reflow](nElement.children)
     return this
   }
 
   static create (nodeName, attrs, children) {
     attrs = Object.entries(attrs)
     children = children.flat(Infinity)
-
-    return FormAssociated.is(nodeName)
-      ? new FormAssociated(nodeName, attrs, children)
-      : new Element(nodeName, attrs, children)
+    return new Element(nodeName, attrs, children)
   }
 
   static is (nodeName) {
