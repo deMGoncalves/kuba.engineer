@@ -1,9 +1,10 @@
 import h, { didMount, didUpdate, Fragment, paint, render, repaint } from '@kuba/h'
+import Slot from '@kuba/slot'
 
 function WC (props, children) {
   return (
     <div>
-      <span>{children.test}</span>
+      <Slot name='test'>{children.test}</Slot>
       {children}
     </div>
   )
@@ -11,8 +12,8 @@ function WC (props, children) {
 
 const component = (props) => (
   <WC>
-    <strong data-key='' data-slot='test'>:@</strong>
     <input value={props.value} onClick={() => props.onClick()} />
+    <strong data-key='' data-slot='test'>:@</strong>
   </WC>
 )
 
