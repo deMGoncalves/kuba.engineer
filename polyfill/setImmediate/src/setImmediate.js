@@ -1,3 +1,5 @@
-export default (functionRef) => (
-  setTimeout(functionRef, 0)
-)
+Reflect.defineProperty(window, 'setImmediate', {
+  value (functionRef) {
+    return setTimeout(functionRef, 0)
+  }
+})

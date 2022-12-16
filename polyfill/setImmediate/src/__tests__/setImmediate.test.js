@@ -1,5 +1,3 @@
-import setImmediate from '../setImmediate'
-
 describe('polyfill.setImmediate', () => {
   let functionRef
   let setTimeout
