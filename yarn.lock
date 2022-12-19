@@ -1050,6 +1050,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kuba/styled@workspace:standard/styled":
+  version: 0.0.0-use.local
+  resolution: "@kuba/styled@workspace:standard/styled"
+  languageName: unknown
+  linkType: soft
+
 "@leichtgewicht/ip-codec@npm:^2.0.1":
   version: 2.0.4
   resolution: "@leichtgewicht/ip-codec@npm:2.0.4"
