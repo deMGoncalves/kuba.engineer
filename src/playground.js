@@ -1,4 +1,12 @@
 import h, { didMount, didUpdate, Fragment, paint, render, repaint } from '@kuba/h'
+import styled from '@kuba/styled'
+
+styled`
+  strong {
+    color: red;
+    font-size: ${'24px'};
+  }
+`
 
 function WC (props, children) {
   return (
