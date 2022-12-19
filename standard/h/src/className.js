@@ -23,6 +23,10 @@ class ClassName {
     return this
   }
 
+  /**
+   * TODO: Temos uma oportunidade de melhoria neste ponto, este
+   * contrato esta com muita responsabilidade
+   */
   [repaint.reflow] (nClassName) {
     (this.value !== nClassName.value) && (
       this.#value = nClassName.value,
