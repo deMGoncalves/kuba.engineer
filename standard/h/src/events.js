@@ -1,4 +1,5 @@
 import Event from './event'
+import magic from '@kuba/magic'
 import reflow from './reflow'
 import render from './render'
 import repaint from './repaint'
@@ -43,8 +44,8 @@ class Events {
     return this
   }
 
-  * [Symbol.iterator] () {
-    yield * this.#eventList
+  [magic.zip] () {
+    return this.#eventList
   }
 
   static create (attrList, target) {

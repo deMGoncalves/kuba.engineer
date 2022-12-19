@@ -1,20 +1,15 @@
+import * as f from '@kuba/f'
 import magic from '@kuba/magic'
 import repaint from './repaint'
 
-function zip (rTarget, vTarget) {
-  rTarget = [...rTarget]
-  vTarget = [...vTarget]
-  const n = Math.max(rTarget.length, vTarget.length)
-  return Array(n).fill(null).map((_, i) => [rTarget[i], vTarget[i]])
-}
-
 function reflow (parent) {
-  zip(...arguments)
-    .forEach(([real, virtual]) => {
-      if (!real && virtual) return parent[reflow.add](virtual)
-      if (real && !virtual) return parent[reflow.remove](real)
-      if (real[reflow.different](virtual)) return parent[reflow.replace](real, virtual)
-      real[repaint.reflow]?.(virtual)
+  f
+    .zip(...arguments)
+    .forEach(([item, nItem]) => {
+      if (!item && nItem) return parent[reflow.add](nItem)
+      if (item && !nItem) return parent[reflow.remove](item)
+      if (item[reflow.different](nItem)) return parent[reflow.replace](item, nItem)
+      item[repaint.reflow]?.(nItem)
     })
 }
 

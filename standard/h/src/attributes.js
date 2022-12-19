@@ -1,4 +1,5 @@
 import Attribute from './attribute'
+import magic from '@kuba/magic'
 import reflow from './reflow'
 import render from './render'
 import repaint from './repaint'
@@ -43,8 +44,8 @@ class Attributes {
     return this
   }
 
-  * [Symbol.iterator] () {
-    yield * this.#attrList
+  [magic.zip] () {
+    return this.#attrList
   }
 
   static create (attrList, target) {

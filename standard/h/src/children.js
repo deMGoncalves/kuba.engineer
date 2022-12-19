@@ -1,3 +1,4 @@
+import magic from '@kuba/magic'
 import reflow from './reflow'
 import render from './render'
 import repaint from './repaint'
@@ -42,8 +43,8 @@ class Children {
     return this
   }
 
-  * [Symbol.iterator] () {
-    yield * this.#childList
+  [magic.zip] () {
+    return this.#childList
   }
 
   static create (childList, parent) {
