@@ -2,9 +2,9 @@ import * as f from '@kuba/f'
 import magic from '@kuba/magic'
 import repaint from './repaint'
 
-function reflow (parent) {
+function reflow (parent, nParent) {
   f
-    .zip(...arguments)
+    .zip(parent, nParent)
     .forEach(([item, nItem]) => {
       if (!item && nItem) return parent[reflow.add](nItem)
       if (item && !nItem) return parent[reflow.remove](item)
