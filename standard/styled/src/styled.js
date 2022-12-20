@@ -1,10 +1,4 @@
-import * as f from '@kuba/f'
-import h, { render } from '@kuba/h'
+import inline from './inline'
+import internal from './internal'
 
-export default (strings, ...expressions) => {
-  const textContent = f.zip(strings, expressions).flat(Infinity).join('')
-  render(
-    document.head,
-    <style>{textContent}</style>
-  )
-}
+export default new Proxy(internal, inline)
