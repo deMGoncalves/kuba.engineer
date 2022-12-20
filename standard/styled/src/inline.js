@@ -5,8 +5,8 @@ export default {
   get: (_target, key) =>
     (strings, ...expressions) =>
       (props, children) => {
-        expressions = expressions.map((e) => (e?.(props) ?? e))
-        const style = f.zip(strings, expressions).flat(Infinity).join('')
+        expressions = expressions.map((e) => e?.(props))
+        const style = f.zip(strings, expressions).flat(Infinity).join('').trim()
         return h(key, { ...props, style }, ...children)
       }
 }
