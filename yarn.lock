@@ -1044,6 +1044,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kuba/router@workspace:standard/router":
+  version: 0.0.0-use.local
+  resolution: "@kuba/router@workspace:standard/router"
+  languageName: unknown
+  linkType: soft
+
 "@kuba/setimmediate@workspace:polyfill/setImmediate":
   version: 0.0.0-use.local
   resolution: "@kuba/setimmediate@workspace:polyfill/setImmediate"
