@@ -1,19 +1,23 @@
 import h, { didMount, didUpdate, Fragment, paint, render, repaint } from '@kuba/h'
 import styled from '@kuba/styled'
 
+const Div = styled.div`
+  color: ${(props) => props.danger ? 'red' : 'black'};
+  font-size: ${() => '24px'};
+`
+
 styled`
-  strong {
-    color: red;
-    font-size: ${'24px'};
+  body {
+    background-color: #fafafa;
   }
 `
 
 function WC (props, children) {
   return (
-    <div>
+    <Div danger>
       <div>{children.test}</div>
       {children}
-    </div>
+    </Div>
   )
 }
 
