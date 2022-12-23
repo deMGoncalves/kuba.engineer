@@ -1,13 +1,26 @@
+import * as f from '@kuba/f'
+import params from './params'
+
 function router (query, functionRef) {
   if (router.pageFound) return
 
-  const path = query.replace(/:\w+/g, '([a-z0-9-_]+)')
-  const pattern = new RegExp(`^${path}$`, 'i')
+  const paths = new RegExp(`^${query.replace(/:\w+/g, '([a-z0-9-_]+)')}$`, 'i')
+  const keys = new RegExp(`^${query.replace(/(?<variable>:)\w+/g, '$1([a-z0-9-_]+)')}$`, 'i')
 
-  pattern.test(location.pathname) && (
-    functionRef(),
-    Reflect.set(router, 'pageFound', true)
+  if (!paths.test(location.pathname)) return
+
+  Object.assign(
+    params,
+    Object.fromEntries(
+      f.zip(
+        keys.exec(query)?.slice(1),
+        paths.exec(location.pathname)?.slice(1)
+      )
+    )
   )
+
+  functionRef()
+  Reflect.set(router, 'pageFound', true)
 }
 
 Object.assign(router, {
