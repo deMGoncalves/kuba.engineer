@@ -1020,6 +1020,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kuba/home@workspace:pages/home":
+  version: 0.0.0-use.local
+  resolution: "@kuba/home@workspace:pages/home"
+  languageName: unknown
+  linkType: soft
+
 "@kuba/magic@workspace:standard/magic":
   version: 0.0.0-use.local
   resolution: "@kuba/magic@workspace:standard/magic"
