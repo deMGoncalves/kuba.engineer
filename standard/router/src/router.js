@@ -1,20 +1,23 @@
 import * as f from '@kuba/f'
 import params from './params'
+import urlFor from './urlFor'
 
-function router (query, functionRef) {
+function router (url, functionRef) {
+  urlFor.push(functionRef.name, url)
+
   if (router.pageFound) return
 
-  const paths = new RegExp(`^${query.replace(/:\w+/g, '([a-z0-9-_]+)')}$`, 'i')
-  const keys = new RegExp(`^${query.replace(/(?<variable>:)\w+/g, '$1([a-z0-9-_]+)')}$`, 'i')
+  const query = new RegExp(`^${url.replace(/:\w+/g, '([a-z0-9-_]+)')}$`, 'i')
+  const keys = new RegExp(`^${url.replace(/(?<variable>:)\w+/g, '$1([a-z0-9-_]+)')}$`, 'i')
 
-  if (!paths.test(location.pathname)) return
+  if (!query.test(location.pathname)) return
 
   Object.assign(
     params,
     Object.fromEntries(
       f.zip(
-        keys.exec(query)?.slice(1),
-        paths.exec(location.pathname)?.slice(1)
+        keys.exec(url)?.slice(1),
+        query.exec(location.pathname)?.slice(1)
       )
     )
   )
