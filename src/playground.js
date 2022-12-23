@@ -1,5 +1,8 @@
-import router from '@kuba/router'
+import router, { params, urlFor } from '@kuba/router'
 
-router('/', () => console.log('home'))
-router('/:id', () => console.log('id'))
-router('/.*', () => console.log('404'))
+router('/', function home () { console.log('home') })
+router('/:id', function user () { console.log('id', params.id) })
+router('/.*', function pageNotFound () { console.log('404') })
+
+const url = urlFor('user', { id: 'asdf' })
+console.log(url)
