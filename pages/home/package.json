@@ -1,5 +1,5 @@
 {
-  "main": "src/index.js",
+  "main": "src/index.jsx",
   "name": "@kuba/home",
   "private": true,
   "version": "1.0.0"
