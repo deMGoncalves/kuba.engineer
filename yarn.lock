@@ -1038,6 +1038,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kuba/http@workspace:standard/http":
+  version: 0.0.0-use.local
+  resolution: "@kuba/http@workspace:standard/http"
+  languageName: unknown
+  linkType: soft
+
 "@kuba/magic@workspace:standard/magic":
   version: 0.0.0-use.local
   resolution: "@kuba/magic@workspace:standard/magic"
