@@ -1056,6 +1056,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kuba/middleware@workspace:standard/middleware":
+  version: 0.0.0-use.local
+  resolution: "@kuba/middleware@workspace:standard/middleware"
+  languageName: unknown
+  linkType: soft
+
 "@kuba/overload@workspace:standard/overload":
   version: 0.0.0-use.local
   resolution: "@kuba/overload@workspace:standard/overload"
@@ -1065,6 +1071,12 @@ __metadata:
 "@kuba/pagenotfound@workspace:pages/pageNotFound":
   version: 0.0.0-use.local
   resolution: "@kuba/pagenotfound@workspace:pages/pageNotFound"
+  languageName: unknown
+  linkType: soft
+
+"@kuba/props@workspace:standard/props":
+  version: 0.0.0-use.local
+  resolution: "@kuba/props@workspace:standard/props"
   languageName: unknown
   linkType: soft
 
@@ -1101,6 +1113,12 @@ __metadata:
 "@kuba/styled@workspace:standard/styled":
   version: 0.0.0-use.local
   resolution: "@kuba/styled@workspace:standard/styled"
+  languageName: unknown
+  linkType: soft
+
+"@kuba/zone@workspace:directive/zone":
+  version: 0.0.0-use.local
+  resolution: "@kuba/zone@workspace:directive/zone"
   languageName: unknown
   linkType: soft
 
