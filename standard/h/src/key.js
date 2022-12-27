@@ -10,7 +10,7 @@ class Key {
   }
 
   static create (attrList) {
-    const [, value] = attrList.find(Key.#is) ?? []
+    const [, value] = attrList.find?.(Key.#is) ?? []
     return new Key(value)
   }
 

@@ -10,7 +10,7 @@ class Slot {
   }
 
   static create (attrList) {
-    const [, value] = attrList.find(Slot.#is) ?? []
+    const [, value] = attrList.find?.(Slot.#is) ?? []
     return new Slot(value)
   }
 

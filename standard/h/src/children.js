@@ -47,6 +47,10 @@ class Children {
     return this.#childList
   }
 
+  * [Symbol.iterator] () {
+    yield * this.#childList
+  }
+
   static create (childList, parent) {
     childList = Text.mapper(childList)
     childList = childList.filter(Boolean)
