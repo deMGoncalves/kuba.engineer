@@ -1086,6 +1086,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kuba/show@workspace:directive/show":
+  version: 0.0.0-use.local
+  resolution: "@kuba/show@workspace:directive/show"
+  languageName: unknown
+  linkType: soft
+
 "@kuba/styled@workspace:standard/styled":
   version: 0.0.0-use.local
   resolution: "@kuba/styled@workspace:standard/styled"
