@@ -1032,6 +1032,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kuba/hide@workspace:directive/hide":
+  version: 0.0.0-use.local
+  resolution: "@kuba/hide@workspace:directive/hide"
+  languageName: unknown
+  linkType: soft
+
 "@kuba/home@workspace:pages/home":
   version: 0.0.0-use.local
   resolution: "@kuba/home@workspace:pages/home"
