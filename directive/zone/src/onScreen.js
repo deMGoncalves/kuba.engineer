@@ -6,7 +6,7 @@ const onScreen = middleware((instanceRef) => {
   override(instanceRef, magic.didMount, function (args, next) {
     const element = instanceRef[onScreen.element]()
     const listener = () => (
-      (element.getBoundingClientRect().top - window.innerHeight) <= (window.innerHeight * 0.2) && (
+      (element.getBoundingClientRect().top <= (window.innerHeight * 1.618)) && (
         window.removeEventListener('scroll', listener),
         instanceRef[onScreen.render]()
       )
