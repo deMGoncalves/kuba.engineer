@@ -10,8 +10,8 @@ function middleware (functionRef) {
         return instance
       },
       {
-        get: (_, key) => Reflect.get(ClassRef, key),
-        set: (_, key, value) => (Reflect.set(ClassRef, key, value), true)
+        get: (_target, key) => Reflect.get(ClassRef, key),
+        set: (_target, key, value) => (Reflect.set(ClassRef, key, value), true)
       }
     )
 }
