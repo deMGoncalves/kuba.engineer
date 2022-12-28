@@ -17,7 +17,7 @@ const onScreen = middleware((instanceRef) => {
 
       window.addEventListener('scroll', offScreen)
       offScreen()
-      next?.()
+      return next?.()
     }
   })
 })
