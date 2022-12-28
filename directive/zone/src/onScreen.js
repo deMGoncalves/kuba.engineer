@@ -15,7 +15,7 @@ const onScreen = middleware((instanceRef) => {
     window.addEventListener('scroll', listener)
     window.dispatchEvent(new Event('scroll'))
 
-    return Reflect.apply(next, this, args)
+    return next(...args)
   })
 })
 
