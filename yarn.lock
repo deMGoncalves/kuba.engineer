@@ -1050,6 +1050,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kuba/lazy@workspace:directive/lazy":
+  version: 0.0.0-use.local
+  resolution: "@kuba/lazy@workspace:directive/lazy"
+  languageName: unknown
+  linkType: soft
+
 "@kuba/magic@workspace:standard/magic":
   version: 0.0.0-use.local
   resolution: "@kuba/magic@workspace:standard/magic"
