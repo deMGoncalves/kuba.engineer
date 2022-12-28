@@ -1,24 +1,21 @@
 import magic from '@kuba/magic'
 import middleware from '@kuba/middleware'
-
-const { didMount } = magic
+import override from '@kuba/override'
 
 const onScreen = middleware((instanceRef) => {
-  const next = instanceRef[didMount]
-  Object.assign(instanceRef, {
-    [didMount] () {
-      const element = instanceRef[onScreen.element]()
-      const offScreen = () => {
-        (element.getBoundingClientRect().top - window.innerHeight) <= (window.innerHeight * 0.2) && (
-          window.removeEventListener('scroll', offScreen),
-          instanceRef[onScreen.render]()
-        )
-      }
+  override(instanceRef, magic.didMount, function (args, next) {
+    const element = instanceRef[onScreen.element]()
+    const listener = () => (
+      (element.getBoundingClientRect().top - window.innerHeight) <= (window.innerHeight * 0.2) && (
+        window.removeEventListener('scroll', listener),
+        instanceRef[onScreen.render]()
+      )
+    )
 
-      window.addEventListener('scroll', offScreen)
-      offScreen()
-      return next?.()
-    }
+    window.addEventListener('scroll', listener)
+    window.dispatchEvent(new Event('scroll'))
+
+    return next.apply(this, args)
   })
 })
 
