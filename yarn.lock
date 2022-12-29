@@ -1140,6 +1140,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kuba/tokens@workspace:pixel/tokens":
+  version: 0.0.0-use.local
+  resolution: "@kuba/tokens@workspace:pixel/tokens"
+  languageName: unknown
+  linkType: soft
+
 "@kuba/zone@workspace:directive/zone":
   version: 0.0.0-use.local
   resolution: "@kuba/zone@workspace:directive/zone"
