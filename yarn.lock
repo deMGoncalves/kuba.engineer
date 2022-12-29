@@ -1104,6 +1104,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kuba/reset@workspace:pixel/reset":
+  version: 0.0.0-use.local
+  resolution: "@kuba/reset@workspace:pixel/reset"
+  languageName: unknown
+  linkType: soft
+
 "@kuba/revoke@workspace:standard/revoke":
   version: 0.0.0-use.local
   resolution: "@kuba/revoke@workspace:standard/revoke"
