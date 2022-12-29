@@ -1,25 +1,25 @@
 import { paint, repaint } from '@kuba/h'
 import component from './component'
-import onScreen from './onScreen'
 import props from '@kuba/props'
+import scroll from './scroll'
 
 @paint(component)
 @props
-@onScreen
+@scroll
 class Zone {
-  #onView
+  #onView = false;
 
-  get onView () {
-    return (this.#onView ??= false)
+  [component.onView] () {
+    return this.#onView
   }
 
-  [onScreen.element] () {
+  [scroll.element] () {
     const [child] = this[paint.rootAST]().children
     return child.__node__
   }
 
   @repaint
-  [onScreen.render] () {
+  [scroll.render] () {
     this.#onView = true
     return this
   }
