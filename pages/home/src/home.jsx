@@ -1,10 +1,13 @@
 import h from '@kuba/h'
 import Zone from '@kuba/zone'
+import lazy from '@kuba/lazy'
+
+const Hero = lazy(() => import('./hero'))
 
 function home () {
   return (
     <Zone>
-      <h1>kuba.engineer</h1>
+      <Hero />
     </Zone>
   )
 }
