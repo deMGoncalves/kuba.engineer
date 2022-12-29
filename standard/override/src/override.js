@@ -2,7 +2,7 @@ function override (target, prop, functionRef) {
   const next = target[prop] ?? function () { return undefined }
   Object.assign(target, {
     [prop] () {
-      return functionRef.call(this, arguments, next.bind(this))
+      return Reflect.apply(functionRef, this, [arguments, next.bind(this)])
     }
   })
 }
