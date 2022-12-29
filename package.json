@@ -49,6 +49,7 @@
     "packages": [
       "directive/*",
       "pages/*",
+      "pixel/*",
       "polyfill/*",
       "standard/*"
     ]
