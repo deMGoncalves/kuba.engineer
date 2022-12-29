@@ -1050,6 +1050,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kuba/interceptor@workspace:standard/interceptor":
+  version: 0.0.0-use.local
+  resolution: "@kuba/interceptor@workspace:standard/interceptor"
+  languageName: unknown
+  linkType: soft
+
 "@kuba/lazy@workspace:directive/lazy":
   version: 0.0.0-use.local
   resolution: "@kuba/lazy@workspace:directive/lazy"
