@@ -3,6 +3,7 @@ import Slot from './slot'
 class Component {
   static execute (nodeName, attrs, children) {
     children = children.flat(Infinity)
+    children = children.filter(Boolean)
     children = Slot.mapper(children)
     return nodeName(attrs, children)
   }

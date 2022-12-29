@@ -10,7 +10,7 @@ class Is {
   }
 
   static create (attrList) {
-    const [, value] = attrList.find(Is.#is) ?? []
+    const [, value] = attrList.find?.(Is.#is) ?? []
     return new Is(value)
   }
 
