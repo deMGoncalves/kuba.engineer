@@ -1002,6 +1002,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@kuba/container@workspace:element/container":
+  version: 0.0.0-use.local
+  resolution: "@kuba/container@workspace:element/container"
+  languageName: unknown
+  linkType: soft
+
 "@kuba/echo@workspace:standard/echo":
   version: 0.0.0-use.local
   resolution: "@kuba/echo@workspace:standard/echo"
@@ -1056,6 +1062,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kuba/jsonld@workspace:standard/jsonld":
+  version: 0.0.0-use.local
+  resolution: "@kuba/jsonld@workspace:standard/jsonld"
+  languageName: unknown
+  linkType: soft
+
 "@kuba/lazy@workspace:directive/lazy":
   version: 0.0.0-use.local
   resolution: "@kuba/lazy@workspace:directive/lazy"
@@ -1065,6 +1077,18 @@ __metadata:
 "@kuba/magic@workspace:standard/magic":
   version: 0.0.0-use.local
   resolution: "@kuba/magic@workspace:standard/magic"
+  languageName: unknown
+  linkType: soft
+
+"@kuba/markup@workspace:pixel/markup":
+  version: 0.0.0-use.local
+  resolution: "@kuba/markup@workspace:pixel/markup"
+  languageName: unknown
+  linkType: soft
+
+"@kuba/master@workspace:model/master":
+  version: 0.0.0-use.local
+  resolution: "@kuba/master@workspace:model/master"
   languageName: unknown
   linkType: soft
 
