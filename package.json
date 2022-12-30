@@ -49,6 +49,7 @@
     "packages": [
       "directive/*",
       "element/*",
+      "model/*",
       "page/*",
       "pixel/*",
       "polyfill/*",
