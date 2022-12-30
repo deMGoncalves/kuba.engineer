@@ -66,7 +66,9 @@ module.exports = {
     maxEntrypointSize: Number(process.env.MAX_ENTRYPOINT_SIZE)
   },
   plugins: [
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'index.html'
+    }),
     new BundleAnalyzerPlugin({
       analyzerMode: process.env.ANALYZER_MODE
     })
