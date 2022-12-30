@@ -1092,6 +1092,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@kuba/polished@workspace:standard/polished":
+  version: 0.0.0-use.local
+  resolution: "@kuba/polished@workspace:standard/polished"
+  languageName: unknown
+  linkType: soft
+
 "@kuba/props@workspace:standard/props":
   version: 0.0.0-use.local
   resolution: "@kuba/props@workspace:standard/props"
@@ -1137,6 +1143,12 @@ __metadata:
 "@kuba/styled@workspace:standard/styled":
   version: 0.0.0-use.local
   resolution: "@kuba/styled@workspace:standard/styled"
+  languageName: unknown
+  linkType: soft
+
+"@kuba/text@workspace:element/text":
+  version: 0.0.0-use.local
+  resolution: "@kuba/text@workspace:element/text"
   languageName: unknown
   linkType: soft
 
