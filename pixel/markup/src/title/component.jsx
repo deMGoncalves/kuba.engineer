@@ -1,13 +1,9 @@
-import h, { Fragment } from '@kuba/h'
+import h from '@kuba/h'
 import magic from '@kuba/magic'
 
 function component (title) {
   return (
-    <>
-      <title>{title[component.content]()}</title>
-      <meta property='og:title' content={title[component.content]()} />
-      <meta property='twitter:title' content={title[component.content]()} />
-    </>
+    <title>{title[component.content]()}</title>
   )
 }
 
