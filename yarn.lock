@@ -1062,12 +1062,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kuba/jsonld@workspace:standard/jsonld":
-  version: 0.0.0-use.local
-  resolution: "@kuba/jsonld@workspace:standard/jsonld"
-  languageName: unknown
-  linkType: soft
-
 "@kuba/lazy@workspace:directive/lazy":
   version: 0.0.0-use.local
   resolution: "@kuba/lazy@workspace:directive/lazy"
